@@ -1,20 +1,20 @@
-const express = require("express");
+import express from 'express';
+import mongoose from 'mongoose';
 const router = express.Router();
-const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true,useUnifiedTopology: true,useCreateIndex: true});
 const db = mongoose.connection;
 db.on('error',console.error.bind(console, 'Connection error:'));
 
 // create
-router.post('/post', (req,res)=>{
+router.post('/post', (_, res)=>{
     res.json({
         message: "POST API for MERN Boilerplate"
     })
 })
 
 // read
-router.get('/get', (req,res)=>{
+router.get('/get', (_, res)=>{
     res.json({
         message: "GET API for MERN Boilerplate"
     })
