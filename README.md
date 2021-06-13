@@ -1,6 +1,6 @@
 # HACKTOBER FEST COMMUNITY 2020
 
-This project is to teach you programmers how to write better quality code which is not written by the programmers working at the companies. We accept the codes that not suck.
+This project is to teach you programmers how to write better quality code which is not written by the programmers working at the companies. We accept the codes that not suck at their quality.
 
 ## Code Of Conduct
 
