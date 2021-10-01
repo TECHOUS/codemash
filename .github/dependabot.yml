@@ -17,16 +17,3 @@ updates:
     labels:
       - "nodejs"
       - "dependencies"
-    
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/client" # Location of package manifests
-    schedule:
-      interval: "weekly"
-      day: "saturday"
-      time: "10:00"
-      timezone: "Asia/Kolkata"
-    target-branch: "dev"
-    versioning-strategy: increase-if-necessary
-    labels:
-      - "react"
-      - "dependencies"
