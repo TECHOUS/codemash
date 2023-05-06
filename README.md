@@ -1,4 +1,4 @@
-# CODE RATE FEST
+# codemash
 
 This project is to teach you programmers how to write better quality code which is not written by the programmers working at the companies. We accept the codes that not suck at their quality.
 
@@ -16,7 +16,8 @@ This is a community project so we need a support from you guys for having the be
 
 ***
 
-### **HACKTOBER FEST Guidelines**
+<details>
+<summary>HACKTOBER FEST Guidelines coming soon</summary>
 
 As a part of the contest send us better quality code in any language written by you only. For more details please refer to [Contributing Guidelines](.github/CONTRIBUTING.md).
 
@@ -36,6 +37,7 @@ PRs count if:
   )
 
 As a part of this update your PRs will be marked as `hacktoberfest-accepted` label before merging and don't get shocked PRs opened in this repository we will be counted in the Hacktober Fest 22.
+</details>
 
 Happy Hacking !
 
