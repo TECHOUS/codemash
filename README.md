@@ -1,4 +1,4 @@
-# codemash
+# :male_detective: codemash
 
 This project is to teach you programmers how to write better quality code which is not written by the programmers working at the companies. We accept the codes that not suck at their quality.
 
@@ -8,16 +8,17 @@ We are following [**Contributor Covenant Code of Conduct**](.github/CODE_OF_COND
 
 ## CONCEPT
 
-Basically the concept of the project to rate the better quality amongst others. In this project the programmers can randomly rate the code of some other guys which is unknown and you can view your code quality rating which you got. 
+Basically the concept of the project is to rate the code quality for the codes contributed to this repository in CodeBase.
+
+You can also get your code rated based on the quality and you can be on a leaderboard
 
 ## CODEBASE
 
-This is a community project so we need a support from you guys for having the better quality code snippets of some problem. Please refer to [Contributing Guidelines](.github/CONTRIBUTING.md).
+**Excited!! please refer to the below guidelines for the contributions**
+
+[Contributing Guidelines](.github/CONTRIBUTING.md).
 
 ***
-
-<details>
-<summary>HACKTOBER FEST Guidelines coming soon</summary>
 
 As a part of the contest send us better quality code in any language written by you only. For more details please refer to [Contributing Guidelines](.github/CONTRIBUTING.md).
 
@@ -36,8 +37,7 @@ PRs count if:
   
   )
 
-As a part of this update your PRs will be marked as `hacktoberfest-accepted` label before merging and don't get shocked PRs opened in this repository we will be counted in the Hacktober Fest 22.
-</details>
+As a part of this update your PRs will be marked as `hacktoberfest-accepted` label before merging and don't get shocked PRs opened in this repository we will be counted in the Hacktober Fest 23.
 
 Happy Hacking !
 
