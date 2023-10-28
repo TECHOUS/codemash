@@ -1,0 +1,9 @@
+#header-outer-div {
+    background-color: var(--giga);
+    width: 100%;
+    text-align: center;
+}
+.inline-header {
+    display: inline-block;
+    /* border: 1px solid black; */
+}
