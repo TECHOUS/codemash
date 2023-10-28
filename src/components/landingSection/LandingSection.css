@@ -1,0 +1,6 @@
+#landing-section-content {
+    min-height: 90vh;
+    background-color: var(--spark);
+    padding-top: 100px;
+    text-align: center;
+}

@@ -1,0 +1,19 @@
+#landing-section-bottom {
+    padding-top: 20px;
+}
+
+#landing-section-bottom > p {
+    font-size: 19px;
+    line-height: 28px;
+}
+#landing-section-bottom-hand {
+    font-size: 45px;
+    cursor: pointer;
+}
+#landing-section-bottom-hand > a,
+#landing-section-bottom-hand > a:visited,
+#landing-section-bottom-hand > a:link,
+#landing-section-bottom-hand > a:invalid {
+    text-decoration: none;
+    color: var(--void);
+}
