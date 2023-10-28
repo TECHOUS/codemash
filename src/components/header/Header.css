@@ -3,7 +3,14 @@
     width: 100%;
     text-align: center;
 }
+
 .inline-header {
     display: inline-block;
     /* border: 1px solid black; */
+}
+
+@media screen and (min-width: 769px) {
+    #header-outer-div {
+        text-align: left;
+    }
 }

@@ -1,11 +1,12 @@
 import './HeaderLinks.css';
+import HeaderLink from './headerLink/HeaderLink';
 
 const HeaderLinks = () => {
     return (
         <div className="inline-header" id="desktop-header">
             <ul id="desktop-header-list">
-                <li>Rate</li>
-                <li>Search</li>
+                <HeaderLink linkName="Rate" href="#" />
+                <HeaderLink linkName="Search" href="#" />
             </ul>
         </div>
     );
