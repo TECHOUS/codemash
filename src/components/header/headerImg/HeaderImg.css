@@ -1,6 +1,5 @@
 #header-img-div {
     cursor: pointer;
-    margin-left: 50px;
 }
 
 #header-img {
@@ -9,9 +8,14 @@
     /* border: 1px solid blue; */
 }
 
+@media screen and (min-width: 769px) {
+    #header-img-div {
+        margin-left: 50px;
+    }
+}
+
 @media screen and (min-width: 1300px) {
     #header-img-div {
-        cursor: pointer;
         margin-left: 70px;
     }
 }
