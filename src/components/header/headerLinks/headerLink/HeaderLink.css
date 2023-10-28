@@ -1,0 +1,18 @@
+.header-link-a,
+.header-link-a:visited,
+.header-link-a:link,
+.header-link-a:invalid {
+    text-decoration: none;
+    color: var(--void);
+}
+
+.header-link-li {
+    font-size: 20px;
+    padding: 25px 60px 25px 0px;
+}
+
+@media screen and (min-width: 1300px) {
+    .header-link-li {
+        padding: 25px 80px 25px 0px;
+    }
+}

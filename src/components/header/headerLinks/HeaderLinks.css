@@ -1,0 +1,17 @@
+@media screen and (max-width: 768px) {
+    #desktop-header {
+        display: none;
+    }
+}
+
+#desktop-header {
+    float: right;
+}
+
+#desktop-header-list {
+    list-style-type: none;
+}
+
+#desktop-header-list > li {
+    display: inline-block;
+}
