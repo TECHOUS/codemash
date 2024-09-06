@@ -52,3 +52,13 @@
         padding: 15px 36%;
     }
 }
+
+@media screen and (min-width: 1600px) {
+    #landing-section-top > h1 {
+        padding: 70px;
+    }
+
+    #landing-section-top > h2 {
+        padding: 30px 36%;
+    }
+}

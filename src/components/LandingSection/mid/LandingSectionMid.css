@@ -2,16 +2,6 @@
     padding: 40px 0px;
 }
 
-.landing-section-button {
-    cursor: pointer;
-    font-size: 20px;
-    border: none;
-    background-color: var(--void);
-    color: var(--manga);
-    padding: 10px 50px;
-    border-radius: 10px;
-}
-
 @media screen and (min-width: 375px) {
     #landing-section-mid {
         padding: 60px 0px;
@@ -19,9 +9,6 @@
 }
 
 @media screen and (min-width: 769px) {
-    .landing-section-button:hover {
-        background-color: var(--psybeam);
-    }
     #landing-section-mid {
         padding: 80px 0px;
     }
