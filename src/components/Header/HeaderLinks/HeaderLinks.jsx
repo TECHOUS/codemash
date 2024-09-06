@@ -1,5 +1,5 @@
 import './HeaderLinks.css';
-import HeaderLink from './headerLink/HeaderLink';
+import HeaderLink from './HeaderLink';
 
 const HeaderLinks = () => {
     return (

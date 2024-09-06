@@ -1,6 +1,6 @@
 import './Header.css';
-import HeaderImg from './headerImg/HeaderImg';
-import HeaderLinks from './headerLinks/HeaderLinks';
+import HeaderImg from './HeaderImg';
+import HeaderLinks from './HeaderLinks';
 
 const Header = () => {
     return (

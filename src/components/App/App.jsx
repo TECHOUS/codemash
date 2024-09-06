@@ -1,5 +1,5 @@
-import Header from '../header/Header';
-import LandingSection from '../landingSection/LandingSection';
+import Header from '../Header';
+import LandingSection from '../LandingSection';
 import './App.css';
 
 function App() {
