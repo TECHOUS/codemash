@@ -6,7 +6,7 @@ const Dot = ({ index }) => {
         <div
             key={index}
             className={dotStyles.dot}
-            style={{ animationDelay: `${index * 0.3}s` }}
+            style={{ animationDelay: `${index * 0.2}s` }}
         ></div>
     );
 };

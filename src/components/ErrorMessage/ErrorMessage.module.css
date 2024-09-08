@@ -1,0 +1,18 @@
+.errorMessageDiv {
+    text-align: center;
+}
+
+.iconDiv {
+    padding: 16px;
+}
+
+.icon {
+    font-size: 64px;
+    color: var(--psybeam);
+}
+
+.errorMessage {
+    font-size: 24px;
+    font-weight: 500;
+    padding: 0px 7%;
+}
