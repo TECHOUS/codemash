@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import SolidStar from './SolidStar/SolidStar.jsx';
-import EmptyStar from './EmptyStar/EmptyStar.jsx';
+import SolidStar from './SolidStar';
+import EmptyStar from './EmptyStar';
 import { useCallback } from 'react';
 
 const StarComponent = ({

@@ -14,7 +14,11 @@ function App() {
                 isPopupOpened={isPopupOpened}
                 setIsPopupOpened={setIsPopupOpened}
             />
-            {isPopupOpened ? <RatingPopup /> : <></>}
+            {isPopupOpened ? (
+                <RatingPopup setIsPopupOpened={setIsPopupOpened} />
+            ) : (
+                <></>
+            )}
         </>
     );
 }
