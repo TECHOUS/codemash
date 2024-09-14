@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import SolidStar from './SolidStar/SolidStar.jsx';
 import EmptyStar from './EmptyStar/EmptyStar.jsx';
+import { useCallback } from 'react';
 
 const StarComponent = ({
     stateKey,
@@ -10,22 +11,29 @@ const StarComponent = ({
 }) => {
     console.log('StarComponent rendered');
 
-    function unselectStar(stateKey) {
-        setRatingStarObj((oldState) => {
-            const newState = { ...oldState };
-            newState[stateKey] = false;
-            return newState;
-        });
-    }
+    const unselectStar = useCallback(
+        (stateKey) => {
+            setRatingStarObj((oldState) => {
+                const newState = { ...oldState };
+                newState[stateKey] = false;
+                newState[otherStateKey] = true;
+                return newState;
+            });
+        },
+        [otherStateKey, setRatingStarObj]
+    );
 
-    function selectStar(stateKey) {
-        setRatingStarObj((oldState) => {
-            const newState = { ...oldState };
-            newState[stateKey] = true;
-            newState[otherStateKey] = false;
-            return newState;
-        });
-    }
+    const selectStar = useCallback(
+        (stateKey) => {
+            setRatingStarObj((oldState) => {
+                const newState = { ...oldState };
+                newState[stateKey] = true;
+                newState[otherStateKey] = false;
+                return newState;
+            });
+        },
+        [otherStateKey, setRatingStarObj]
+    );
 
     if (ratingStarObj[stateKey]) {
         return <SolidStar unselectStar={unselectStar} stateKey={stateKey} />;

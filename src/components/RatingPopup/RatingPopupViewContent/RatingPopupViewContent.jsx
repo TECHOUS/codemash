@@ -1,38 +1,17 @@
 import PropTypes from 'prop-types';
 import RPMobileContentViewer from './RPMobileContentViewer';
 import RPDesktopContentViewer from './RPDesktopContentViewer';
-import { useState, useEffect } from 'react';
 import DotSpinner from '../../DotSpinner';
 import ErrorMessage from '../../ErrorMessage';
 
-const RatingPopupViewContent = ({ innerWidth }) => {
-    const [isLoading, setIsLoading] = useState(true);
-    const [randomCodesResponse, setRandomCodesResponse] = useState({});
-    const [ratingStarObj, setRatingStarObj] = useState({
-        firstStar: false,
-        secondStar: false,
-    });
-
+const RatingPopupViewContent = ({
+    innerWidth,
+    isLoading,
+    randomCodesResponse,
+    ratingStarObj,
+    setRatingStarObj,
+}) => {
     console.log('RatingPopupViewContent rendered');
-
-    useEffect(() => {
-        async function callRandomCodesAPI() {
-            try {
-                const response = await fetch(import.meta.env.VITE_RANDOM_CODES);
-                const parsedResponse = await response.json();
-                setRandomCodesResponse(parsedResponse);
-            } catch (e) {
-                setRandomCodesResponse({
-                    status: 500,
-                    error: e,
-                });
-            }
-            setIsLoading(false);
-        }
-
-        callRandomCodesAPI();
-    }, []);
-
     if (isLoading) {
         return (
             <div>
@@ -64,6 +43,10 @@ const RatingPopupViewContent = ({ innerWidth }) => {
 
 RatingPopupViewContent.propTypes = {
     innerWidth: PropTypes.number,
+    isLoading: PropTypes.bool,
+    randomCodesResponse: PropTypes.object,
+    ratingStarObj: PropTypes.object,
+    setRatingStarObj: PropTypes.func,
 };
 
 export default RatingPopupViewContent;
