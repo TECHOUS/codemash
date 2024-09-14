@@ -1,5 +1,7 @@
+/* eslint-disable react-refresh/only-export-components */
 import PropTypes from 'prop-types';
 import styles from './RPMCodeViewOption.module.css';
+import { memo } from 'react';
 
 const RPMCodeViewOption = ({ setViewCode }) => {
     function handleClick() {
@@ -20,4 +22,4 @@ RPMCodeViewOption.propTypes = {
     setViewCode: PropTypes.func,
 };
 
-export default RPMCodeViewOption;
+export default memo(RPMCodeViewOption);

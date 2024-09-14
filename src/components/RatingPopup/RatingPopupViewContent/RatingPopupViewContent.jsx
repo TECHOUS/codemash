@@ -13,6 +13,8 @@ const RatingPopupViewContent = ({ innerWidth }) => {
         secondStar: false,
     });
 
+    console.log('RatingPopupViewContent rendered');
+
     useEffect(() => {
         async function callRandomCodesAPI() {
             try {
@@ -49,7 +51,11 @@ const RatingPopupViewContent = ({ innerWidth }) => {
         );
     } else if (innerWidth <= 768) {
         return (
-            <RPMobileContentViewer randomCodesResponse={randomCodesResponse} />
+            <RPMobileContentViewer
+                randomCodesResponse={randomCodesResponse}
+                ratingStarObj={ratingStarObj}
+                setRatingStarObj={setRatingStarObj}
+            />
         );
     } else {
         return <RPDesktopContentViewer />;

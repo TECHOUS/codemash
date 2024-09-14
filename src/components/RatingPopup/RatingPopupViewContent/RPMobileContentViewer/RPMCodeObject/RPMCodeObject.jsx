@@ -3,8 +3,15 @@ import { useState } from 'react';
 import RPMCodeViewOption from '../RPMCodeViewOption';
 import RPMCodeViewer from '../RPMCodeViewer';
 import styles from './RPMCodeObject.module.css';
+import StarComponent from '../../StarComponent/StarComponent';
 
-const RPMCodeObject = ({ codeObject }) => {
+const RPMCodeObject = ({
+    codeObject,
+    stateKey,
+    otherStateKey,
+    ratingStarObj,
+    setRatingStarObj,
+}) => {
     const [viewCode, setViewCode] = useState(false);
 
     if (viewCode) {
@@ -17,6 +24,12 @@ const RPMCodeObject = ({ codeObject }) => {
             <div className={styles.rpmCodeObject}>
                 <RPMCodeViewOption setViewCode={setViewCode} />
                 <p className={styles.codeName}>{codeObject.codeName}</p>
+                <StarComponent
+                    stateKey={stateKey}
+                    otherStateKey={otherStateKey}
+                    ratingStarObj={ratingStarObj}
+                    setRatingStarObj={setRatingStarObj}
+                />
             </div>
         );
     }
@@ -24,6 +37,10 @@ const RPMCodeObject = ({ codeObject }) => {
 
 RPMCodeObject.propTypes = {
     codeObject: PropTypes.object,
+    stateKey: PropTypes.string,
+    otherStateKey: PropTypes.string,
+    ratingStarObj: PropTypes.object,
+    setRatingStarObj: PropTypes.func,
 };
 
 export default RPMCodeObject;
