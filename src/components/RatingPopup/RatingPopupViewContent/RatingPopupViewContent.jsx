@@ -8,8 +8,10 @@ import ErrorMessage from '../../ErrorMessage';
 const RatingPopupViewContent = ({ innerWidth }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [randomCodesResponse, setRandomCodesResponse] = useState({});
-    const [firstStar, setFirstStar] = useState(false);
-    const [secondStar, setSecondStar] = useState(false);
+    const [ratingStarObj, setRatingStarObj] = useState({
+        firstStar: false,
+        secondStar: false,
+    });
 
     useEffect(() => {
         async function callRandomCodesAPI() {

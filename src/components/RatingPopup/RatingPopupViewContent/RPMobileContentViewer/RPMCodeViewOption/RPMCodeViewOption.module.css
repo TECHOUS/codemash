@@ -1,0 +1,18 @@
+.rpmCodeViewOption {
+    width: 70px;
+    background-color: var(--giga);
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+}
+
+.fileIcon {
+    font-size: 80px;
+    padding-top: 6px;
+}
+
+.viewH2 {
+    font-weight: 500;
+    padding-top: 5px;
+}

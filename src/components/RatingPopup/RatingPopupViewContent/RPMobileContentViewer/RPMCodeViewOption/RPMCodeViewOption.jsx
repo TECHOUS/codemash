@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import styles from './RPMCodeViewOption.module.css';
 
 const RPMCodeViewOption = ({ setViewCode }) => {
     function handleClick() {
@@ -6,11 +7,11 @@ const RPMCodeViewOption = ({ setViewCode }) => {
     }
 
     return (
-        <div onClick={handleClick}>
+        <div onClick={handleClick} className={styles.rpmCodeViewOption}>
             <div>
-                <i className="fa-regular fa-file-code"></i>
+                <i className={`fa-regular fa-file-code ${styles.fileIcon}`}></i>
             </div>
-            <h2>View</h2>
+            <h2 className={styles.viewH2}>View</h2>
         </div>
     );
 };
