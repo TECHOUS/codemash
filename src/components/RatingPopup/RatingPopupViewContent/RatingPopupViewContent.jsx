@@ -1,8 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 import PropTypes from 'prop-types';
 import RPMobileContentViewer from './RPMobileContentViewer';
 import RPDesktopContentViewer from './RPDesktopContentViewer';
 import DotSpinner from '../../DotSpinner';
 import ErrorMessage from '../../ErrorMessage';
+import { memo } from 'react';
 
 const RatingPopupViewContent = ({
     innerWidth,
@@ -49,4 +51,4 @@ RatingPopupViewContent.propTypes = {
     setRatingStarObj: PropTypes.func,
 };
 
-export default RatingPopupViewContent;
+export default memo(RatingPopupViewContent);

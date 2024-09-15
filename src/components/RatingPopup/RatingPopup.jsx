@@ -1,10 +1,11 @@
+/* eslint-disable react-refresh/only-export-components */
 import styles from './RatingPopup.module.css';
 import { useState, useEffect, useCallback } from 'react';
 import RatingPopupViewContent from './RatingPopupViewContent';
 import DoneButton from './DoneButton/DoneButton';
 import PropTypes from 'prop-types';
 
-const RatingPopup = ({ setIsPopupOpened }) => {
+const RatingPopup = ({ setIsPopupOpened, setAccessToken, addToastMessage }) => {
     const [innerWidth, setInnerWidth] = useState(window.innerWidth);
     const [randomCodesResponse, setRandomCodesResponse] = useState({});
     const [isLoadingForRandomCodes, setIsLoadingForRandomCodes] =
@@ -13,16 +14,12 @@ const RatingPopup = ({ setIsPopupOpened }) => {
         firstStar: false,
         secondStar: false,
     });
-    const [rateCodeResponse, setRateCodeResponse] = useState({
-        status: 0,
-        message: '',
-    });
 
     const handleResize = useCallback(() => {
         setInnerWidth(window.innerWidth);
     }, []);
 
-    async function callRateCodeAPI(payload) {
+    const callRateCodeAPI = useCallback(async (payload) => {
         try {
             const putResponse = await fetch(import.meta.env.VITE_RATE_CODE, {
                 method: 'PUT',
@@ -33,28 +30,25 @@ const RatingPopup = ({ setIsPopupOpened }) => {
             });
             const parsedResponse = await putResponse.json();
             if (parsedResponse.status && parsedResponse.message) {
-                setRateCodeResponse({
+                return {
                     status: parsedResponse.status,
                     message: parsedResponse.message,
-                });
+                };
             } else {
                 throw new Error('Issue with rateCode API');
             }
         } catch (e) {
             console.error(e);
-            setRateCodeResponse({
+            return {
                 status: 500,
                 message: 'Unable to update the Code Ratings',
-            });
+            };
         }
-    }
+    }, []);
 
     const handleDoneButton = useCallback(async () => {
         if (!ratingStarObj.firstStar && !ratingStarObj.secondStar) {
-            setRateCodeResponse({
-                status: -1,
-                message: 'Please select and rate any code to proceed',
-            });
+            addToastMessage('Please select and rate any code to proceed');
             return;
         }
 
@@ -68,9 +62,16 @@ const RatingPopup = ({ setIsPopupOpened }) => {
         } else if (ratingStarObj.secondStar) {
             payload['winner'] = 2;
         }
-        await callRateCodeAPI(payload);
+        const putResponse = await callRateCodeAPI(payload);
+        addToastMessage(putResponse.message);
         setIsPopupOpened(false);
-    }, [randomCodesResponse, ratingStarObj, setIsPopupOpened]);
+    }, [
+        randomCodesResponse,
+        ratingStarObj,
+        setIsPopupOpened,
+        addToastMessage,
+        callRateCodeAPI,
+    ]);
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
@@ -86,6 +87,7 @@ const RatingPopup = ({ setIsPopupOpened }) => {
                 const response = await fetch(import.meta.env.VITE_RANDOM_CODES);
                 const parsedResponse = await response.json();
                 setRandomCodesResponse(parsedResponse);
+                setAccessToken(parsedResponse['accessToken']);
             } catch (e) {
                 setRandomCodesResponse({
                     status: 500,
@@ -96,7 +98,7 @@ const RatingPopup = ({ setIsPopupOpened }) => {
         }
 
         callRandomCodesAPI();
-    }, []);
+    }, [setAccessToken]);
 
     return (
         <div className={styles.ratingPopup}>
@@ -119,6 +121,8 @@ const RatingPopup = ({ setIsPopupOpened }) => {
 
 RatingPopup.propTypes = {
     setIsPopupOpened: PropTypes.func,
+    setAccessToken: PropTypes.func,
+    addToastMessage: PropTypes.func,
 };
 
 export default RatingPopup;
