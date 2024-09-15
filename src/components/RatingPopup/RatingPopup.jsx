@@ -7,11 +7,12 @@ import PropTypes from 'prop-types';
 const RatingPopup = ({ setIsPopupOpened }) => {
     const [innerWidth, setInnerWidth] = useState(window.innerWidth);
     const [randomCodesResponse, setRandomCodesResponse] = useState({});
+    const [isLoadingForRandomCodes, setIsLoadingForRandomCodes] =
+        useState(true);
     const [ratingStarObj, setRatingStarObj] = useState({
         firstStar: false,
         secondStar: false,
     });
-    const [isLoading, setIsLoading] = useState(true);
     const [rateCodeResponse, setRateCodeResponse] = useState({
         status: 0,
         message: '',
@@ -48,7 +49,7 @@ const RatingPopup = ({ setIsPopupOpened }) => {
         }
     }
 
-    const handleDoneButton = async () => {
+    const handleDoneButton = useCallback(async () => {
         if (!ratingStarObj.firstStar && !ratingStarObj.secondStar) {
             setRateCodeResponse({
                 status: -1,
@@ -69,7 +70,7 @@ const RatingPopup = ({ setIsPopupOpened }) => {
         }
         await callRateCodeAPI(payload);
         setIsPopupOpened(false);
-    };
+    }, [randomCodesResponse, ratingStarObj, setIsPopupOpened]);
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
@@ -91,7 +92,7 @@ const RatingPopup = ({ setIsPopupOpened }) => {
                     error: e,
                 });
             }
-            setIsLoading(false);
+            setIsLoadingForRandomCodes(false);
         }
 
         callRandomCodesAPI();
@@ -104,7 +105,7 @@ const RatingPopup = ({ setIsPopupOpened }) => {
             </h2>
             <RatingPopupViewContent
                 innerWidth={innerWidth}
-                isLoading={isLoading}
+                isLoadingForRandomCodes={isLoadingForRandomCodes}
                 randomCodesResponse={randomCodesResponse}
                 ratingStarObj={ratingStarObj}
                 setRatingStarObj={setRatingStarObj}

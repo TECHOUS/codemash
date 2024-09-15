@@ -6,13 +6,13 @@ import ErrorMessage from '../../ErrorMessage';
 
 const RatingPopupViewContent = ({
     innerWidth,
-    isLoading,
+    isLoadingForRandomCodes,
     randomCodesResponse,
     ratingStarObj,
     setRatingStarObj,
 }) => {
     console.log('RatingPopupViewContent rendered');
-    if (isLoading) {
+    if (isLoadingForRandomCodes) {
         return (
             <div>
                 <DotSpinner dotCount={5} />;
@@ -43,7 +43,7 @@ const RatingPopupViewContent = ({
 
 RatingPopupViewContent.propTypes = {
     innerWidth: PropTypes.number,
-    isLoading: PropTypes.bool,
+    isLoadingForRandomCodes: PropTypes.bool,
     randomCodesResponse: PropTypes.object,
     ratingStarObj: PropTypes.object,
     setRatingStarObj: PropTypes.func,
