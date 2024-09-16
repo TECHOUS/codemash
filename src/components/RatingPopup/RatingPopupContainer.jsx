@@ -2,6 +2,7 @@ import RatingPopupPresenter from './RatingPopupPresenter.jsx';
 import { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useWindowWidth } from '../hooks/useWindowWidth.js';
+import { useRandomCodesAPI } from '../hooks/useRandomCodesAPI.js';
 
 const RatingPopupContainer = ({
     setIsPopupOpened,
@@ -9,9 +10,8 @@ const RatingPopupContainer = ({
     addToastMessage,
 }) => {
     const { innerWidth } = useWindowWidth();
-    const [randomCodesResponse, setRandomCodesResponse] = useState({});
-    const [isLoadingForRandomCodes, setIsLoadingForRandomCodes] =
-        useState(true);
+    const { randomCodesResponse, isLoadingForRandomCodes, callRandomCodesAPI } =
+        useRandomCodesAPI();
     const [ratingStarObj, setRatingStarObj] = useState({
         firstStar: false,
         secondStar: false,
@@ -74,23 +74,11 @@ const RatingPopupContainer = ({
     ]);
 
     useEffect(() => {
-        async function callRandomCodesAPI() {
-            try {
-                const response = await fetch(import.meta.env.VITE_RANDOM_CODES);
-                const parsedResponse = await response.json();
-                setRandomCodesResponse(parsedResponse);
-                setAccessToken(parsedResponse['accessToken']);
-            } catch (e) {
-                setRandomCodesResponse({
-                    status: 500,
-                    error: e,
-                });
-            }
-            setIsLoadingForRandomCodes(false);
+        const response = callRandomCodesAPI();
+        if (response && response.status == 200) {
+            setAccessToken(response['accessToken']);
         }
-
-        callRandomCodesAPI();
-    }, [setAccessToken]);
+    }, [setAccessToken, callRandomCodesAPI]);
 
     return (
         <RatingPopupPresenter
