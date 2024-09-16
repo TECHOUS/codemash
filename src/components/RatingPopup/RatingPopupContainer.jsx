@@ -1,13 +1,14 @@
 import RatingPopupPresenter from './RatingPopupPresenter.jsx';
 import { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { useWindowWidth } from '../hooks/useWindowWidth.js';
 
 const RatingPopupContainer = ({
     setIsPopupOpened,
     setAccessToken,
     addToastMessage,
 }) => {
-    const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+    const { innerWidth } = useWindowWidth();
     const [randomCodesResponse, setRandomCodesResponse] = useState({});
     const [isLoadingForRandomCodes, setIsLoadingForRandomCodes] =
         useState(true);
@@ -17,10 +18,6 @@ const RatingPopupContainer = ({
     });
 
     console.log('ratingpopup container rendered');
-
-    const handleResize = useCallback(() => {
-        setInnerWidth(window.innerWidth);
-    }, []);
 
     const callRateCodeAPI = useCallback(async (payload) => {
         try {
@@ -75,14 +72,6 @@ const RatingPopupContainer = ({
         addToastMessage,
         callRateCodeAPI,
     ]);
-
-    useEffect(() => {
-        window.addEventListener('resize', handleResize);
-        setInnerWidth(window.innerWidth);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, [handleResize]);
 
     useEffect(() => {
         async function callRandomCodesAPI() {
