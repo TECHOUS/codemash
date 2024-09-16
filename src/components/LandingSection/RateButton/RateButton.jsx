@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import styles from './RateButton.module.css';
 
-const RateButton = ({ isPopupOpened, setIsPopupOpened }) => {
+const RateButton = ({ setIsPopupOpened }) => {
     function handleClick() {
-        setIsPopupOpened(!isPopupOpened);
+        setIsPopupOpened(true);
     }
 
     return (
@@ -14,7 +14,6 @@ const RateButton = ({ isPopupOpened, setIsPopupOpened }) => {
 };
 
 RateButton.propTypes = {
-    isPopupOpened: PropTypes.bool,
     setIsPopupOpened: PropTypes.func,
 };
 

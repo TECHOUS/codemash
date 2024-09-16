@@ -2,7 +2,7 @@ import Header from '../Header';
 import LandingSection from '../LandingSection';
 import './App.css';
 import { useState, useCallback } from 'react';
-import RatingPopup from '../RatingPopup';
+import RatingPopupContainer from '../RatingPopup';
 import ToastMessages from '../ToastMessages/ToastMessages';
 
 function App() {
@@ -35,12 +35,9 @@ function App() {
     return (
         <>
             <Header />
-            <LandingSection
-                isPopupOpened={isPopupOpened}
-                setIsPopupOpened={setIsPopupOpened}
-            />
+            <LandingSection setIsPopupOpened={setIsPopupOpened} />
             {isPopupOpened && (
-                <RatingPopup
+                <RatingPopupContainer
                     setIsPopupOpened={setIsPopupOpened}
                     setAccessToken={setAccessToken}
                     addToastMessage={addToastMessage}

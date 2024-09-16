@@ -1,11 +1,12 @@
-/* eslint-disable react-refresh/only-export-components */
-import styles from './RatingPopup.module.css';
+import RatingPopupPresenter from './RatingPopupPresenter.jsx';
 import { useState, useEffect, useCallback } from 'react';
-import RatingPopupViewContent from './RatingPopupViewContent';
-import DoneButton from './DoneButton/DoneButton';
 import PropTypes from 'prop-types';
 
-const RatingPopup = ({ setIsPopupOpened, setAccessToken, addToastMessage }) => {
+const RatingPopupContainer = ({
+    setIsPopupOpened,
+    setAccessToken,
+    addToastMessage,
+}) => {
     const [innerWidth, setInnerWidth] = useState(window.innerWidth);
     const [randomCodesResponse, setRandomCodesResponse] = useState({});
     const [isLoadingForRandomCodes, setIsLoadingForRandomCodes] =
@@ -14,6 +15,8 @@ const RatingPopup = ({ setIsPopupOpened, setAccessToken, addToastMessage }) => {
         firstStar: false,
         secondStar: false,
     });
+
+    console.log('ratingpopup container rendered');
 
     const handleResize = useCallback(() => {
         setInnerWidth(window.innerWidth);
@@ -101,28 +104,21 @@ const RatingPopup = ({ setIsPopupOpened, setAccessToken, addToastMessage }) => {
     }, [setAccessToken]);
 
     return (
-        <div className={styles.ratingPopup}>
-            <h2 className={styles.ratingPopupH2}>
-                Rate the code file which you see is having the better code style
-            </h2>
-            <RatingPopupViewContent
-                innerWidth={innerWidth}
-                isLoadingForRandomCodes={isLoadingForRandomCodes}
-                randomCodesResponse={randomCodesResponse}
-                ratingStarObj={ratingStarObj}
-                setRatingStarObj={setRatingStarObj}
-            />
-            <div className={styles.doneButtonDiv}>
-                <DoneButton handleDoneButton={handleDoneButton} />
-            </div>
-        </div>
+        <RatingPopupPresenter
+            innerWidth={innerWidth}
+            isLoadingForRandomCodes={isLoadingForRandomCodes}
+            randomCodesResponse={randomCodesResponse}
+            ratingStarObj={ratingStarObj}
+            setRatingStarObj={setRatingStarObj}
+            handleDoneButton={handleDoneButton}
+        />
     );
 };
 
-RatingPopup.propTypes = {
+RatingPopupContainer.propTypes = {
     setIsPopupOpened: PropTypes.func,
     setAccessToken: PropTypes.func,
     addToastMessage: PropTypes.func,
 };
 
-export default RatingPopup;
+export default RatingPopupContainer;

@@ -4,15 +4,12 @@ import LandingSectionBottom from './bottom/LandingSectionBottom.jsx';
 import './LandingSection.css';
 import PropTypes from 'prop-types';
 
-const LandingSection = ({ isPopupOpened, setIsPopupOpened }) => {
+const LandingSection = ({ setIsPopupOpened }) => {
     return (
         <div id="landing-section">
             <div id="landing-section-content">
                 <LandingSectionTop />
-                <LandingSectionMid
-                    isPopupOpened={isPopupOpened}
-                    setIsPopupOpened={setIsPopupOpened}
-                />
+                <LandingSectionMid setIsPopupOpened={setIsPopupOpened} />
                 <LandingSectionBottom />
             </div>
         </div>
@@ -20,7 +17,6 @@ const LandingSection = ({ isPopupOpened, setIsPopupOpened }) => {
 };
 
 LandingSection.propTypes = {
-    isPopupOpened: PropTypes.bool,
     setIsPopupOpened: PropTypes.func,
 };
 
