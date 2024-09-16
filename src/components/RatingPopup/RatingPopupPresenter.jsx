@@ -13,7 +13,7 @@ const RatingPopupPresenter = ({
     setRatingStarObj,
     handleDoneButton,
 }) => {
-    console.log('rating pop up rendered');
+    console.log('RatingPopupPresenter rendered');
 
     return (
         <div className={styles.ratingPopup}>
