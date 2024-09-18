@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
 import styles from './RateButton.module.css';
+import { SET_POP_UP_OPENED } from '../../hooks/useAppReducer.js';
 
-const RateButton = ({ setIsPopupOpened }) => {
+const RateButton = ({ dispatch }) => {
     function handleClick() {
-        setIsPopupOpened(true);
+        dispatch({
+            type: SET_POP_UP_OPENED,
+        });
     }
 
     return (
@@ -14,7 +17,7 @@ const RateButton = ({ setIsPopupOpened }) => {
 };
 
 RateButton.propTypes = {
-    setIsPopupOpened: PropTypes.func,
+    dispatch: PropTypes.func,
 };
 
 export default RateButton;

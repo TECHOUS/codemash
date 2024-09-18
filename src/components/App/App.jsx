@@ -1,30 +1,28 @@
 import Header from '../Header';
 import LandingSection from '../LandingSection';
 import './App.css';
-import { useState } from 'react';
 import RatingPopupHandler from '../RatingPopup';
 import ToastMessages from '../ToastMessages/ToastMessages';
-import { useToastMessages } from '../hooks/useToastMessages.js';
+import { useAppReducer } from '../hooks/useAppReducer.js';
 
 function App() {
-    const [isPopupOpened, setIsPopupOpened] = useState(false);
-    const [accessToken, setAccessToken] = useState('');
-    const { toastMessages, addToastMessage, removeToastMessage } =
-        useToastMessages();
+    // const [isPopupOpened, setIsPopupOpened] = useState(false);
+    // const [accessToken, setAccessToken] = useState('');
+    // const { toastMessages, addToastMessage, removeToastMessage } =
+    //     useToastMessages();
+    const [state, dispatch] = useAppReducer();
 
     return (
         <>
             <Header />
-            <LandingSection setIsPopupOpened={setIsPopupOpened} />
+            <LandingSection dispatch={dispatch} />
             <RatingPopupHandler
-                isPopupOpened={isPopupOpened}
-                setIsPopupOpened={setIsPopupOpened}
-                setAccessToken={setAccessToken}
-                addToastMessage={addToastMessage}
+                isPopupOpened={state.isPopupOpened}
+                dispatch={dispatch}
             />
             <ToastMessages
-                toastMessages={toastMessages}
-                removeToastMessage={removeToastMessage}
+                toastMessages={state.toastMessages}
+                dispatch={dispatch}
             />
         </>
     );

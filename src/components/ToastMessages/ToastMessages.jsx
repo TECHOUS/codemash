@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import ToastMessage from './ToastMessage/ToastMessage';
 import { memo } from 'react';
 
-const ToastMessages = ({ toastMessages, removeToastMessage }) => {
+const ToastMessages = ({ toastMessages, dispatch }) => {
     if (toastMessages && toastMessages.length > 0) {
         return toastMessages.map((toastMessage) => (
             <ToastMessage
                 key={toastMessage.timestamp}
                 toastMessage={toastMessage}
-                removeToastMessage={removeToastMessage}
+                dispatch={dispatch}
             />
         ));
     } else {
@@ -19,7 +19,7 @@ const ToastMessages = ({ toastMessages, removeToastMessage }) => {
 
 ToastMessages.propTypes = {
     toastMessages: PropTypes.array,
-    removeToastMessage: PropTypes.func,
+    dispatch: PropTypes.func,
 };
 
 export default memo(ToastMessages);

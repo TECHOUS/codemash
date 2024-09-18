@@ -5,12 +5,13 @@ import PropTypes from 'prop-types';
 import { useWindowWidth } from '../hooks/useWindowWidth.js';
 import { useRandomCodesAPI } from '../hooks/useRandomCodesAPI.js';
 import { memo } from 'react';
+import {
+    ADD_TOAST_MESSAGE,
+    SET_POP_UP_CLOSED,
+    SET_ACCESS_TOKEN,
+} from '../hooks/useAppReducer.js';
 
-const RatingPopupContainer = ({
-    setIsPopupOpened,
-    setAccessToken,
-    addToastMessage,
-}) => {
+const RatingPopupContainer = ({ dispatch }) => {
     const { innerWidth } = useWindowWidth();
     const { randomCodesResponse, isLoadingForRandomCodes, callRandomCodesAPI } =
         useRandomCodesAPI();
@@ -50,10 +51,13 @@ const RatingPopupContainer = ({
 
     const handleDoneButton = useCallback(async () => {
         if (!ratingStarObj.firstStar && !ratingStarObj.secondStar) {
-            addToastMessage(
-                'Please select and rate any code to proceed',
-                Date.now()
-            );
+            dispatch({
+                type: ADD_TOAST_MESSAGE,
+                payload: {
+                    message: 'Please select and rate any code to proceed',
+                    timestamp: Date.now(),
+                },
+            });
             return;
         }
 
@@ -68,22 +72,29 @@ const RatingPopupContainer = ({
             payload['winner'] = 2;
         }
         const putResponse = await callRateCodeAPI(payload);
-        addToastMessage(putResponse.message);
-        setIsPopupOpened(false);
-    }, [
-        randomCodesResponse,
-        ratingStarObj,
-        setIsPopupOpened,
-        addToastMessage,
-        callRateCodeAPI,
-    ]);
+        dispatch({
+            type: ADD_TOAST_MESSAGE,
+            payload: {
+                message: putResponse.message,
+                timestamp: Date.now(),
+            },
+        });
+        dispatch({
+            type: SET_POP_UP_CLOSED,
+        });
+    }, [randomCodesResponse, ratingStarObj, callRateCodeAPI, dispatch]);
 
     useEffect(() => {
         const response = callRandomCodesAPI();
         if (response && response.status == 200) {
-            setAccessToken(response['accessToken']);
+            dispatch({
+                type: SET_ACCESS_TOKEN,
+                payload: {
+                    accessToken: response['accessToken'],
+                },
+            });
         }
-    }, [setAccessToken, callRandomCodesAPI]);
+    }, [dispatch, callRandomCodesAPI]);
 
     return (
         <RatingPopupPresenter
@@ -98,9 +109,7 @@ const RatingPopupContainer = ({
 };
 
 RatingPopupContainer.propTypes = {
-    setIsPopupOpened: PropTypes.func,
-    setAccessToken: PropTypes.func,
-    addToastMessage: PropTypes.func,
+    dispatch: PropTypes.func,
 };
 
 export default memo(RatingPopupContainer);

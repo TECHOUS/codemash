@@ -2,16 +2,16 @@ import PropTypes from 'prop-types';
 import './LandingSectionMid.css';
 import RateButton from '../RateButton';
 
-const LandingSectionMid = ({ setIsPopupOpened }) => {
+const LandingSectionMid = ({ dispatch }) => {
     return (
         <div id="landing-section-mid">
-            <RateButton setIsPopupOpened={setIsPopupOpened} />
+            <RateButton dispatch={dispatch} />
         </div>
     );
 };
 
 LandingSectionMid.propTypes = {
-    setIsPopupOpened: PropTypes.func,
+    dispatch: PropTypes.func,
 };
 
 export default LandingSectionMid;
