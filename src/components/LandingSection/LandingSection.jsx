@@ -4,12 +4,12 @@ import LandingSectionBottom from './bottom/LandingSectionBottom.jsx';
 import './LandingSection.css';
 import PropTypes from 'prop-types';
 
-const LandingSection = ({ dispatch }) => {
+const LandingSection = ({ appDispatch }) => {
     return (
         <div id="landing-section">
             <div id="landing-section-content">
                 <LandingSectionTop />
-                <LandingSectionMid dispatch={dispatch} />
+                <LandingSectionMid appDispatch={appDispatch} />
                 <LandingSectionBottom />
             </div>
         </div>
@@ -17,7 +17,7 @@ const LandingSection = ({ dispatch }) => {
 };
 
 LandingSection.propTypes = {
-    dispatch: PropTypes.func,
+    appDispatch: PropTypes.func,
 };
 
 export default LandingSection;

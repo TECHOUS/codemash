@@ -6,23 +6,19 @@ import ToastMessages from '../ToastMessages/ToastMessages';
 import { useAppReducer } from '../hooks/useAppReducer.js';
 
 function App() {
-    // const [isPopupOpened, setIsPopupOpened] = useState(false);
-    // const [accessToken, setAccessToken] = useState('');
-    // const { toastMessages, addToastMessage, removeToastMessage } =
-    //     useToastMessages();
-    const [state, dispatch] = useAppReducer();
+    const [state, appDispatch] = useAppReducer();
 
     return (
         <>
             <Header />
-            <LandingSection dispatch={dispatch} />
+            <LandingSection appDispatch={appDispatch} />
             <RatingPopupHandler
                 isPopupOpened={state.isPopupOpened}
-                dispatch={dispatch}
+                appDispatch={appDispatch}
             />
             <ToastMessages
                 toastMessages={state.toastMessages}
-                dispatch={dispatch}
+                appDispatch={appDispatch}
             />
         </>
     );

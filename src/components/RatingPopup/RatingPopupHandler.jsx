@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import RatingPopupContainer from './RatingPopupContainer.jsx';
 import { memo } from 'react';
 
-const RatingPopupHandler = ({ isPopupOpened, dispatch }) => {
+const RatingPopupHandler = ({ isPopupOpened, appDispatch }) => {
     if (isPopupOpened) {
-        return <RatingPopupContainer dispatch={dispatch} />;
+        return <RatingPopupContainer appDispatch={appDispatch} />;
     } else {
         return <></>;
     }
@@ -13,7 +13,7 @@ const RatingPopupHandler = ({ isPopupOpened, dispatch }) => {
 
 RatingPopupHandler.propTypes = {
     isPopupOpened: PropTypes.bool,
-    dispatch: PropTypes.func,
+    appDispatch: PropTypes.func,
 };
 
 export default memo(RatingPopupHandler);

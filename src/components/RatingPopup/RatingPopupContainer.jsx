@@ -11,7 +11,7 @@ import {
     SET_ACCESS_TOKEN,
 } from '../hooks/useAppReducer.js';
 
-const RatingPopupContainer = ({ dispatch }) => {
+const RatingPopupContainer = ({ appDispatch }) => {
     const { innerWidth } = useWindowWidth();
     const { randomCodesResponse, isLoadingForRandomCodes, callRandomCodesAPI } =
         useRandomCodesAPI();
@@ -51,7 +51,7 @@ const RatingPopupContainer = ({ dispatch }) => {
 
     const handleDoneButton = useCallback(async () => {
         if (!ratingStarObj.firstStar && !ratingStarObj.secondStar) {
-            dispatch({
+            appDispatch({
                 type: ADD_TOAST_MESSAGE,
                 payload: {
                     message: 'Please select and rate any code to proceed',
@@ -72,29 +72,29 @@ const RatingPopupContainer = ({ dispatch }) => {
             payload['winner'] = 2;
         }
         const putResponse = await callRateCodeAPI(payload);
-        dispatch({
+        appDispatch({
             type: ADD_TOAST_MESSAGE,
             payload: {
                 message: putResponse.message,
                 timestamp: Date.now(),
             },
         });
-        dispatch({
+        appDispatch({
             type: SET_POP_UP_CLOSED,
         });
-    }, [randomCodesResponse, ratingStarObj, callRateCodeAPI, dispatch]);
+    }, [randomCodesResponse, ratingStarObj, callRateCodeAPI, appDispatch]);
 
     useEffect(() => {
         const response = callRandomCodesAPI();
         if (response && response.status == 200) {
-            dispatch({
+            appDispatch({
                 type: SET_ACCESS_TOKEN,
                 payload: {
                     accessToken: response['accessToken'],
                 },
             });
         }
-    }, [dispatch, callRandomCodesAPI]);
+    }, [appDispatch, callRandomCodesAPI]);
 
     return (
         <RatingPopupPresenter
@@ -109,7 +109,7 @@ const RatingPopupContainer = ({ dispatch }) => {
 };
 
 RatingPopupContainer.propTypes = {
-    dispatch: PropTypes.func,
+    appDispatch: PropTypes.func,
 };
 
 export default memo(RatingPopupContainer);
