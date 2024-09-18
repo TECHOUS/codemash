@@ -1,8 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 import RatingPopupPresenter from './RatingPopupPresenter.jsx';
 import { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useWindowWidth } from '../hooks/useWindowWidth.js';
 import { useRandomCodesAPI } from '../hooks/useRandomCodesAPI.js';
+import { memo } from 'react';
 
 const RatingPopupContainer = ({
     setIsPopupOpened,
@@ -48,7 +50,10 @@ const RatingPopupContainer = ({
 
     const handleDoneButton = useCallback(async () => {
         if (!ratingStarObj.firstStar && !ratingStarObj.secondStar) {
-            addToastMessage('Please select and rate any code to proceed');
+            addToastMessage(
+                'Please select and rate any code to proceed',
+                Date.now()
+            );
             return;
         }
 
@@ -98,4 +103,4 @@ RatingPopupContainer.propTypes = {
     addToastMessage: PropTypes.func,
 };
 
-export default RatingPopupContainer;
+export default memo(RatingPopupContainer);

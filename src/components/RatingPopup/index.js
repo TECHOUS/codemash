@@ -1,1 +1,1 @@
-export { default } from './RatingPopupContainer.jsx';
+export { default } from './RatingPopupHandler.jsx';

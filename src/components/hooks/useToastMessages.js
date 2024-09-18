@@ -4,11 +4,11 @@ export function useToastMessages() {
     const [toastMessages, setToastMessages] = useState([]);
 
     const addToastMessage = useCallback(
-        (message) => {
+        (message, timestamp) => {
             const newMessages = [...toastMessages];
             newMessages.push({
                 message,
-                timestamp: new Date(),
+                timestamp,
             });
             setToastMessages(newMessages);
         },

@@ -2,7 +2,7 @@ import Header from '../Header';
 import LandingSection from '../LandingSection';
 import './App.css';
 import { useState } from 'react';
-import RatingPopupContainer from '../RatingPopup';
+import RatingPopupHandler from '../RatingPopup';
 import ToastMessages from '../ToastMessages/ToastMessages';
 import { useToastMessages } from '../hooks/useToastMessages.js';
 
@@ -16,13 +16,12 @@ function App() {
         <>
             <Header />
             <LandingSection setIsPopupOpened={setIsPopupOpened} />
-            {isPopupOpened && (
-                <RatingPopupContainer
-                    setIsPopupOpened={setIsPopupOpened}
-                    setAccessToken={setAccessToken}
-                    addToastMessage={addToastMessage}
-                />
-            )}
+            <RatingPopupHandler
+                isPopupOpened={isPopupOpened}
+                setIsPopupOpened={setIsPopupOpened}
+                setAccessToken={setAccessToken}
+                addToastMessage={addToastMessage}
+            />
             <ToastMessages
                 toastMessages={toastMessages}
                 removeToastMessage={removeToastMessage}

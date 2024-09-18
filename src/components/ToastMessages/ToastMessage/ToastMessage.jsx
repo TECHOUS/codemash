@@ -13,9 +13,13 @@ const ToastMessage = ({ toastMessage, removeToastMessage }) => {
         };
     }, [toastMessage, removeToastMessage]);
 
+    const hideToastMessage = () => {
+        removeToastMessage(toastMessage.timestamp);
+    };
+
     return (
         <div>
-            <CrossIcon />
+            <CrossIcon hideToastMessage={hideToastMessage} />
             <div>{toastMessage.message}</div>
         </div>
     );
