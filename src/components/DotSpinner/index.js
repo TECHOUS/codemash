@@ -1,1 +1,1 @@
-export { default } from './DotSpinner.jsx';
+export { default } from './DotSpinnerContainer.jsx';

@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import RatingPopupPresenter from './RatingPopupPresenter.jsx';
-import { useState, useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useWindowWidth } from '../hooks/useWindowWidth.js';
 import { useRandomCodesAPI } from '../hooks/useRandomCodesAPI.js';
@@ -10,17 +10,26 @@ import {
     SET_POP_UP_CLOSED,
     SET_ACCESS_TOKEN,
 } from '../hooks/useAppReducer.js';
+import { useRatingPopupReducer } from '../hooks/useRatingPopupReducer.js';
 
 const RatingPopupContainer = ({ appDispatch }) => {
-    const { innerWidth } = useWindowWidth();
-    const { randomCodesResponse, isLoadingForRandomCodes, callRandomCodesAPI } =
-        useRandomCodesAPI();
-    const [ratingStarObj, setRatingStarObj] = useState({
-        firstStar: false,
-        secondStar: false,
-    });
+    const [state, ratingPopupDispatch] = useRatingPopupReducer();
+    useWindowWidth(state.innerWidth, ratingPopupDispatch);
+    const { callRandomCodesAPI } = useRandomCodesAPI(ratingPopupDispatch);
 
     console.log('ratingpopup container rendered');
+
+    useEffect(() => {
+        const response = callRandomCodesAPI();
+        if (response && response.status == 200) {
+            appDispatch({
+                type: SET_ACCESS_TOKEN,
+                payload: {
+                    accessToken: response['accessToken'],
+                },
+            });
+        }
+    }, [appDispatch, callRandomCodesAPI]);
 
     const callRateCodeAPI = useCallback(async (payload) => {
         try {
@@ -50,7 +59,7 @@ const RatingPopupContainer = ({ appDispatch }) => {
     }, []);
 
     const handleDoneButton = useCallback(async () => {
-        if (!ratingStarObj.firstStar && !ratingStarObj.secondStar) {
+        if (!state.ratingStarObj.firstStar && !state.ratingStarObj.secondStar) {
             appDispatch({
                 type: ADD_TOAST_MESSAGE,
                 payload: {
@@ -62,13 +71,13 @@ const RatingPopupContainer = ({ appDispatch }) => {
         }
 
         const payload = {
-            codeRatingEngineToken: randomCodesResponse.accessToken,
-            codeId1: randomCodesResponse['codeObject1']['codeId'],
-            codeId2: randomCodesResponse['codeObject2']['codeId'],
+            codeRatingEngineToken: state.randomCodesResponse.accessToken,
+            codeId1: state.randomCodesResponse['codeObject1']['codeId'],
+            codeId2: state.randomCodesResponse['codeObject2']['codeId'],
         };
-        if (ratingStarObj.firstStar) {
+        if (state.ratingStarObj.firstStar) {
             payload['winner'] = 1;
-        } else if (ratingStarObj.secondStar) {
+        } else if (state.ratingStarObj.secondStar) {
             payload['winner'] = 2;
         }
         const putResponse = await callRateCodeAPI(payload);
@@ -82,27 +91,20 @@ const RatingPopupContainer = ({ appDispatch }) => {
         appDispatch({
             type: SET_POP_UP_CLOSED,
         });
-    }, [randomCodesResponse, ratingStarObj, callRateCodeAPI, appDispatch]);
-
-    useEffect(() => {
-        const response = callRandomCodesAPI();
-        if (response && response.status == 200) {
-            appDispatch({
-                type: SET_ACCESS_TOKEN,
-                payload: {
-                    accessToken: response['accessToken'],
-                },
-            });
-        }
-    }, [appDispatch, callRandomCodesAPI]);
+    }, [
+        state.randomCodesResponse,
+        state.ratingStarObj,
+        callRateCodeAPI,
+        appDispatch,
+    ]);
 
     return (
         <RatingPopupPresenter
-            innerWidth={innerWidth}
-            isLoadingForRandomCodes={isLoadingForRandomCodes}
-            randomCodesResponse={randomCodesResponse}
-            ratingStarObj={ratingStarObj}
-            setRatingStarObj={setRatingStarObj}
+            innerWidth={state.innerWidth}
+            isLoadingForRandomCodes={state.isLoadingForRandomCodes}
+            randomCodesResponse={state.randomCodesResponse}
+            ratingStarObj={state.ratingStarObj}
+            ratingPopupDispatch={ratingPopupDispatch}
             handleDoneButton={handleDoneButton}
         />
     );

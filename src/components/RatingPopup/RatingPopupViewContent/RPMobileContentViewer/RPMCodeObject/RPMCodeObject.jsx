@@ -10,7 +10,7 @@ const RPMCodeObject = ({
     stateKey,
     otherStateKey,
     ratingStarObj,
-    setRatingStarObj,
+    ratingPopupDispatch,
 }) => {
     const [viewCode, setViewCode] = useState(false);
 
@@ -28,7 +28,7 @@ const RPMCodeObject = ({
                     stateKey={stateKey}
                     otherStateKey={otherStateKey}
                     ratingStarObj={ratingStarObj}
-                    setRatingStarObj={setRatingStarObj}
+                    ratingPopupDispatch={ratingPopupDispatch}
                 />
             </div>
         );
@@ -40,7 +40,7 @@ RPMCodeObject.propTypes = {
     stateKey: PropTypes.string,
     otherStateKey: PropTypes.string,
     ratingStarObj: PropTypes.object,
-    setRatingStarObj: PropTypes.func,
+    ratingPopupDispatch: PropTypes.func,
 };
 
 export default RPMCodeObject;

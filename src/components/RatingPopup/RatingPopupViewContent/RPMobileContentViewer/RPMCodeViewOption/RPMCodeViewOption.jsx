@@ -4,6 +4,8 @@ import styles from './RPMCodeViewOption.module.css';
 import { memo } from 'react';
 
 const RPMCodeViewOption = ({ setViewCode }) => {
+    console.log('RPMCodeViewOption rendered');
+
     function handleClick() {
         setViewCode(true);
     }

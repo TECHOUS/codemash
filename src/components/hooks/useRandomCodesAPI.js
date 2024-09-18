@@ -1,27 +1,37 @@
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
+import {
+    SET_RANDOM_CODES,
+    STOP_IS_LOADING_FOR_RANDOM_CODES,
+} from './useRatingPopupReducer.js';
 
-export function useRandomCodesAPI() {
-    const [randomCodesResponse, setRandomCodesResponse] = useState({});
-    const [isLoadingForRandomCodes, setIsLoadingForRandomCodes] =
-        useState(true);
-
+export function useRandomCodesAPI(ratingPopupDispatch) {
     const callRandomCodesAPI = useCallback(async () => {
         try {
             const response = await fetch(import.meta.env.VITE_RANDOM_CODES);
             const parsedResponse = await response.json();
-            setRandomCodesResponse(parsedResponse);
+            ratingPopupDispatch({
+                type: SET_RANDOM_CODES,
+                payload: {
+                    randomCodesResponse: parsedResponse,
+                },
+            });
         } catch (e) {
-            setRandomCodesResponse({
-                status: 500,
-                error: e,
+            ratingPopupDispatch({
+                type: SET_RANDOM_CODES,
+                payload: {
+                    randomCodesResponse: {
+                        status: 500,
+                        error: e,
+                    },
+                },
             });
         }
-        setIsLoadingForRandomCodes(false);
-    }, []);
+        ratingPopupDispatch({
+            type: STOP_IS_LOADING_FOR_RANDOM_CODES,
+        });
+    }, [ratingPopupDispatch]);
 
     return {
-        randomCodesResponse,
-        isLoadingForRandomCodes,
         callRandomCodesAPI,
     };
 }

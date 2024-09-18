@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import RPMobileContentViewer from './RPMobileContentViewer';
 import RPDesktopContentViewer from './RPDesktopContentViewer';
-import DotSpinner from '../../DotSpinner';
+import DotSpinnerContainer from '../../DotSpinner';
 import ErrorMessage from '../../ErrorMessage';
 import { memo } from 'react';
 
@@ -11,15 +11,11 @@ const RatingPopupViewContent = ({
     isLoadingForRandomCodes,
     randomCodesResponse,
     ratingStarObj,
-    setRatingStarObj,
+    ratingPopupDispatch,
 }) => {
     console.log('RatingPopupViewContent rendered');
     if (isLoadingForRandomCodes) {
-        return (
-            <div>
-                <DotSpinner dotCount={5} />;
-            </div>
-        );
+        return <DotSpinnerContainer dotCount={5} />;
     } else if (
         randomCodesResponse.status &&
         randomCodesResponse.status != 200
@@ -35,7 +31,7 @@ const RatingPopupViewContent = ({
             <RPMobileContentViewer
                 randomCodesResponse={randomCodesResponse}
                 ratingStarObj={ratingStarObj}
-                setRatingStarObj={setRatingStarObj}
+                ratingPopupDispatch={ratingPopupDispatch}
             />
         );
     } else {
@@ -48,7 +44,7 @@ RatingPopupViewContent.propTypes = {
     isLoadingForRandomCodes: PropTypes.bool,
     randomCodesResponse: PropTypes.object,
     ratingStarObj: PropTypes.object,
-    setRatingStarObj: PropTypes.func,
+    ratingPopupDispatch: PropTypes.func,
 };
 
 export default memo(RatingPopupViewContent);

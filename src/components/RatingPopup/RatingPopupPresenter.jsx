@@ -10,7 +10,7 @@ const RatingPopupPresenter = ({
     isLoadingForRandomCodes,
     randomCodesResponse,
     ratingStarObj,
-    setRatingStarObj,
+    ratingPopupDispatch,
     handleDoneButton,
 }) => {
     console.log('RatingPopupPresenter rendered');
@@ -25,7 +25,7 @@ const RatingPopupPresenter = ({
                 isLoadingForRandomCodes={isLoadingForRandomCodes}
                 randomCodesResponse={randomCodesResponse}
                 ratingStarObj={ratingStarObj}
-                setRatingStarObj={setRatingStarObj}
+                ratingPopupDispatch={ratingPopupDispatch}
             />
             <div className={styles.doneButtonDiv}>
                 <DoneButton handleDoneButton={handleDoneButton} />
@@ -39,7 +39,7 @@ RatingPopupPresenter.propTypes = {
     isLoadingForRandomCodes: PropTypes.bool,
     randomCodesResponse: PropTypes.object,
     ratingStarObj: PropTypes.object,
-    setRatingStarObj: PropTypes.func,
+    ratingPopupDispatch: PropTypes.func,
     handleDoneButton: PropTypes.func,
 };
 

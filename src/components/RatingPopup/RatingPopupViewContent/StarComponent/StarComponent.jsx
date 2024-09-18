@@ -2,38 +2,38 @@ import PropTypes from 'prop-types';
 import SolidStar from './SolidStar';
 import EmptyStar from './EmptyStar';
 import { useCallback } from 'react';
+import {
+    UNSELECT_STAR,
+    SELECT_STAR,
+} from '../../../hooks/useRatingPopupReducer.js';
 
 const StarComponent = ({
     stateKey,
     otherStateKey,
     ratingStarObj,
-    setRatingStarObj,
+    ratingPopupDispatch,
 }) => {
     console.log('StarComponent rendered');
 
-    const unselectStar = useCallback(
-        (stateKey) => {
-            setRatingStarObj((oldState) => {
-                const newState = { ...oldState };
-                newState[stateKey] = false;
-                newState[otherStateKey] = true;
-                return newState;
-            });
-        },
-        [otherStateKey, setRatingStarObj]
-    );
+    const unselectStar = useCallback(() => {
+        ratingPopupDispatch({
+            type: UNSELECT_STAR,
+            payload: {
+                stateKey,
+                otherStateKey,
+            },
+        });
+    }, [ratingPopupDispatch, stateKey, otherStateKey]);
 
-    const selectStar = useCallback(
-        (stateKey) => {
-            setRatingStarObj((oldState) => {
-                const newState = { ...oldState };
-                newState[stateKey] = true;
-                newState[otherStateKey] = false;
-                return newState;
-            });
-        },
-        [otherStateKey, setRatingStarObj]
-    );
+    const selectStar = useCallback(() => {
+        ratingPopupDispatch({
+            type: SELECT_STAR,
+            payload: {
+                stateKey,
+                otherStateKey,
+            },
+        });
+    }, [ratingPopupDispatch, stateKey, otherStateKey]);
 
     if (ratingStarObj[stateKey]) {
         return <SolidStar unselectStar={unselectStar} stateKey={stateKey} />;
@@ -46,7 +46,7 @@ StarComponent.propTypes = {
     stateKey: PropTypes.string,
     otherStateKey: PropTypes.string,
     ratingStarObj: PropTypes.object,
-    setRatingStarObj: PropTypes.func,
+    ratingPopupDispatch: PropTypes.func,
 };
 
 export default StarComponent;

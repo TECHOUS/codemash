@@ -4,7 +4,7 @@ import RPMCodeObject from './RPMCodeObject';
 const RPMobileContentViewer = ({
     randomCodesResponse,
     ratingStarObj,
-    setRatingStarObj,
+    ratingPopupDispatch,
 }) => {
     console.log('RPMobileContentViewer rendered');
 
@@ -15,14 +15,14 @@ const RPMobileContentViewer = ({
                 stateKey="firstStar"
                 otherStateKey="secondStar"
                 ratingStarObj={ratingStarObj}
-                setRatingStarObj={setRatingStarObj}
+                ratingPopupDispatch={ratingPopupDispatch}
             />
             <RPMCodeObject
                 codeObject={randomCodesResponse.codeObject2}
                 stateKey="secondStar"
                 otherStateKey="firstStar"
                 ratingStarObj={ratingStarObj}
-                setRatingStarObj={setRatingStarObj}
+                ratingPopupDispatch={ratingPopupDispatch}
             />
         </>
     );
@@ -31,7 +31,7 @@ const RPMobileContentViewer = ({
 RPMobileContentViewer.propTypes = {
     randomCodesResponse: PropTypes.object,
     ratingStarObj: PropTypes.object,
-    setRatingStarObj: PropTypes.func,
+    ratingPopupDispatch: PropTypes.func,
 };
 
 export default RPMobileContentViewer;

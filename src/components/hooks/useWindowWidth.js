@@ -1,19 +1,26 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
+import { SET_INNER_WIDTH } from './useRatingPopupReducer.js';
 
-export function useWindowWidth() {
-    const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-
+export function useWindowWidth(innerWidth, ratingPopupDispatch) {
     const handleResize = useCallback(() => {
-        setInnerWidth(window.innerWidth);
-    }, []);
+        ratingPopupDispatch({
+            type: SET_INNER_WIDTH,
+            payload: {
+                innerWidth: window.innerWidth,
+            },
+        });
+    }, [ratingPopupDispatch]);
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
-        setInnerWidth(window.innerWidth);
+        ratingPopupDispatch({
+            type: SET_INNER_WIDTH,
+            payload: {
+                innerWidth: window.innerWidth,
+            },
+        });
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [handleResize]);
-
-    return { innerWidth };
+    }, [handleResize, ratingPopupDispatch]);
 }
