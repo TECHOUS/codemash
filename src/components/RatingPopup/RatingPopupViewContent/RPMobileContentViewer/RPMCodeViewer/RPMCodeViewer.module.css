@@ -1,0 +1,16 @@
+.rpmCodeViewer {
+    position: absolute;
+    background-color: var(--manga);
+    top: 0px;
+    width: 98%;
+    border-radius: 5px;
+    max-height: 88vh;
+    z-index: 2;
+    overflow-x: scroll;
+    margin: 1%;
+}
+
+.contentParserDiv {
+    padding: 10px;
+    white-space: nowrap;
+}

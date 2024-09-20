@@ -15,10 +15,12 @@ const RPMCodeObject = ({
     const [viewCode, setViewCode] = useState(false);
 
     if (viewCode) {
-        <RPMCodeViewer
-            content={codeObject.content}
-            setViewCode={setViewCode}
-        />;
+        return (
+            <RPMCodeViewer
+                content={codeObject.content}
+                setViewCode={setViewCode}
+            />
+        );
     } else {
         return (
             <div className={styles.rpmCodeObject}>

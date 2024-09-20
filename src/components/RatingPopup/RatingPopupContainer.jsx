@@ -58,12 +58,19 @@ const RatingPopupContainer = ({ appDispatch }) => {
         }
     }, []);
 
+    const closeRatingPopup = useCallback(() => {
+        appDispatch({
+            type: SET_POP_UP_CLOSED,
+        });
+    }, [appDispatch]);
+
     const handleDoneButton = useCallback(async () => {
         if (!state.ratingStarObj.firstStar && !state.ratingStarObj.secondStar) {
             appDispatch({
                 type: ADD_TOAST_MESSAGE,
                 payload: {
-                    message: 'Please select and rate any code to proceed',
+                    message:
+                        'Please rate any code by selecting a star to proceed',
                     timestamp: Date.now(),
                     type: 'ERROR',
                 },
@@ -90,14 +97,13 @@ const RatingPopupContainer = ({ appDispatch }) => {
                 type: 'SUCCESS',
             },
         });
-        appDispatch({
-            type: SET_POP_UP_CLOSED,
-        });
+        closeRatingPopup();
     }, [
         state.randomCodesResponse,
         state.ratingStarObj,
         callRateCodeAPI,
         appDispatch,
+        closeRatingPopup,
     ]);
 
     return (
@@ -108,6 +114,7 @@ const RatingPopupContainer = ({ appDispatch }) => {
             ratingStarObj={state.ratingStarObj}
             ratingPopupDispatch={ratingPopupDispatch}
             handleDoneButton={handleDoneButton}
+            closeRatingPopup={closeRatingPopup}
         />
     );
 };

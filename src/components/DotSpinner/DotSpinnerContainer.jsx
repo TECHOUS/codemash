@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import DotSpinner from './DotSpinner.jsx';
+import styles from './DotSpinnerContainer.module.css';
 
 const DotSpinnerContainer = ({ dotCount }) => {
     return (
-        <div>
-            <DotSpinner dotCount={dotCount} />;
+        <div className={styles.dotSpinnerContainer}>
+            <DotSpinner dotCount={dotCount} />
         </div>
     );
 };

@@ -1,0 +1,8 @@
+.rpmCodeViewerCrossIconDiv {
+    text-align: center;
+    padding: 5px;
+    position: sticky;
+    z-index: 3;
+    bottom: 0;
+    background-color: var(--manga);
+}

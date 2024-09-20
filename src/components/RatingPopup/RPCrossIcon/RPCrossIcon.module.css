@@ -1,0 +1,12 @@
+.mobileRPCrossIcon {
+    color: var(--psybeam);
+    position: absolute;
+    bottom: 0;
+    width: 98%;
+    text-align: center;
+    padding: 5px;
+}
+
+.desktopRPCrossIcon {
+    color: var(--psybeam);
+}

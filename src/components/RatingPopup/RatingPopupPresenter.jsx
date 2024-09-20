@@ -4,6 +4,7 @@ import RatingPopupViewContent from './RatingPopupViewContent';
 import DoneButtonContainer from './DoneButton';
 import PropTypes from 'prop-types';
 import { memo } from 'react';
+import RPCrossIcon from './RPCrossIcon/RPCrossIcon';
 
 const RatingPopupPresenter = ({
     innerWidth,
@@ -12,6 +13,7 @@ const RatingPopupPresenter = ({
     ratingStarObj,
     ratingPopupDispatch,
     handleDoneButton,
+    closeRatingPopup,
 }) => {
     console.log('RatingPopupPresenter rendered');
 
@@ -28,6 +30,10 @@ const RatingPopupPresenter = ({
                 ratingPopupDispatch={ratingPopupDispatch}
             />
             <DoneButtonContainer handleDoneButton={handleDoneButton} />
+            <RPCrossIcon
+                innerWidth={innerWidth}
+                closeRatingPopup={closeRatingPopup}
+            />
         </div>
     );
 };
@@ -39,6 +45,7 @@ RatingPopupPresenter.propTypes = {
     ratingStarObj: PropTypes.object,
     ratingPopupDispatch: PropTypes.func,
     handleDoneButton: PropTypes.func,
+    closeRatingPopup: PropTypes.func,
 };
 
 export default memo(RatingPopupPresenter);
