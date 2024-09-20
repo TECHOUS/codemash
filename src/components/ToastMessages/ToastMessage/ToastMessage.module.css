@@ -4,6 +4,7 @@
     padding: 10px;
     border-radius: 5px;
     margin: 5px;
+    display: flex;
 }
 
 .errorMessageDiv {
@@ -12,11 +13,12 @@
     padding: 10px;
     border-radius: 5px;
     margin: 5px;
+    display: flex;
 }
 
 .toastMessageText {
-    display: inline-block;
-    width: 70%;
-    vertical-align: top;
-    padding: 0px 5px;
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+    padding: 5px;
 }
