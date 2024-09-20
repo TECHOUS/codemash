@@ -23,6 +23,7 @@ const addToastMessage = (toastMessages, payload) => {
     newMessages.push({
         message: payload.message,
         timestamp: payload.timestamp,
+        type: payload.type,
     });
     return newMessages;
 };

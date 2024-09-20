@@ -1,0 +1,15 @@
+.successMessageDiv {
+    background-color: var(--success);
+    color: var(--manga);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.errorMessageDiv {
+    background-color: var(--error);
+    color: var(--manga);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+}

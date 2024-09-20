@@ -2,7 +2,7 @@ import Header from '../Header';
 import LandingSection from '../LandingSection';
 import './App.css';
 import RatingPopupHandler from '../RatingPopup';
-import ToastMessages from '../ToastMessages/ToastMessages';
+import ToastMessagesContainer from '../ToastMessages';
 import { useAppReducer } from '../hooks/useAppReducer.js';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
                 isPopupOpened={state.isPopupOpened}
                 appDispatch={appDispatch}
             />
-            <ToastMessages
+            <ToastMessagesContainer
                 toastMessages={state.toastMessages}
                 appDispatch={appDispatch}
             />

@@ -65,6 +65,7 @@ const RatingPopupContainer = ({ appDispatch }) => {
                 payload: {
                     message: 'Please select and rate any code to proceed',
                     timestamp: Date.now(),
+                    type: 'ERROR',
                 },
             });
             return;
@@ -86,6 +87,7 @@ const RatingPopupContainer = ({ appDispatch }) => {
             payload: {
                 message: putResponse.message,
                 timestamp: Date.now(),
+                type: 'SUCCESS',
             },
         });
         appDispatch({

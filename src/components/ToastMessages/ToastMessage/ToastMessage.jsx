@@ -1,8 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
 import PropTypes from 'prop-types';
 import CrossIcon from '../CrossIcon/CrossIcon';
-import { useEffect, memo } from 'react';
+import { useEffect, memo, useMemo } from 'react';
 import { REMOVE_TOAST_MESSAGE } from '../../hooks/useAppReducer.js';
+import styles from './ToastMessage.module.css';
 
 const ToastMessage = ({ toastMessage, appDispatch }) => {
     useEffect(() => {
@@ -28,8 +29,19 @@ const ToastMessage = ({ toastMessage, appDispatch }) => {
         });
     };
 
+    const computeClassName = useMemo(() => {
+        switch (toastMessage.type) {
+            case 'SUCCESS':
+                return styles.successMessageDiv;
+            case 'ERROR':
+                return styles.errorMessageDiv;
+            default:
+                return '';
+        }
+    }, [toastMessage.type]);
+
     return (
-        <div>
+        <div className={computeClassName}>
             <CrossIcon hideToastMessage={hideToastMessage} />
             <div>{toastMessage.message}</div>
         </div>

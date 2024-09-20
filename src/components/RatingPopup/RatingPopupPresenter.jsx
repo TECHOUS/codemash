@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import styles from './RatingPopupPresenter.module.css';
 import RatingPopupViewContent from './RatingPopupViewContent';
-import DoneButton from './DoneButton/DoneButton';
+import DoneButtonContainer from './DoneButton';
 import PropTypes from 'prop-types';
 import { memo } from 'react';
 
@@ -27,9 +27,7 @@ const RatingPopupPresenter = ({
                 ratingStarObj={ratingStarObj}
                 ratingPopupDispatch={ratingPopupDispatch}
             />
-            <div className={styles.doneButtonDiv}>
-                <DoneButton handleDoneButton={handleDoneButton} />
-            </div>
+            <DoneButtonContainer handleDoneButton={handleDoneButton} />
         </div>
     );
 };
