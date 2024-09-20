@@ -4,6 +4,7 @@ import CrossIcon from '../CrossIcon/CrossIcon';
 import { useEffect, memo, useMemo } from 'react';
 import { REMOVE_TOAST_MESSAGE } from '../../hooks/useAppReducer.js';
 import styles from './ToastMessage.module.css';
+import ToastIconContainer from '../ToastIconContainer';
 
 const ToastMessage = ({ toastMessage, appDispatch }) => {
     useEffect(() => {
@@ -42,8 +43,11 @@ const ToastMessage = ({ toastMessage, appDispatch }) => {
 
     return (
         <div className={computeClassName}>
+            <ToastIconContainer type={toastMessage.type} />
+            <div className={styles.toastMessageText}>
+                {toastMessage.message}
+            </div>
             <CrossIcon hideToastMessage={hideToastMessage} />
-            <div>{toastMessage.message}</div>
         </div>
     );
 };

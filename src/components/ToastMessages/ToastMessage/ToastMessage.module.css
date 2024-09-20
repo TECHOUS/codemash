@@ -13,3 +13,10 @@
     border-radius: 5px;
     margin: 5px;
 }
+
+.toastMessageText {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+    padding: 0px 5px;
+}
