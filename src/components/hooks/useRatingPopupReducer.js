@@ -4,7 +4,6 @@ const initialState = {
     innerWidth: window.innerWidth,
     randomCodesResponse: {},
     isLoadingForRandomCodes: true,
-    isLoadingForRateCode: true,
     ratingStarObj: {
         firstStar: false,
         secondStar: false,
@@ -18,7 +17,6 @@ export const SET_INNER_WIDTH = 'SET_INNER_WIDTH';
 export const SET_RANDOM_CODES = 'SET_RANDOM_CODES';
 export const STOP_IS_LOADING_FOR_RANDOM_CODES =
     'STOP_IS_LOADING_FOR_RANDOM_CODES';
-export const SET_IS_LOADING_FOR_RATE_CODE = 'SET_IS_LOADING_FOR_RATE_CODE';
 export const SELECT_STAR = 'SELECT_STAR';
 export const UNSELECT_STAR = 'UNSELECT_STAR';
 
@@ -57,11 +55,6 @@ function reducer(currentState, action) {
             return {
                 ...currentState,
                 isLoadingForRandomCodes: false,
-            };
-        case SET_IS_LOADING_FOR_RATE_CODE:
-            return {
-                ...currentState,
-                isLoadingForRateCode: action.payload.isLoadingForRateCode,
             };
         case SELECT_STAR:
             return {

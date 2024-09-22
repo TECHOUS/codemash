@@ -9,4 +9,8 @@
 
 .desktopRPCrossIcon {
     color: var(--psybeam);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px 10px;
 }

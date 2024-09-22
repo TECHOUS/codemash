@@ -41,7 +41,11 @@ const RatingPopupContainer = ({ appDispatch }) => {
                 body: JSON.stringify(payload),
             });
             const parsedResponse = await putResponse.json();
-            if (parsedResponse.status && parsedResponse.message) {
+            if (
+                parsedResponse.status &&
+                parsedResponse.status === 200 &&
+                parsedResponse.message
+            ) {
                 return {
                     status: parsedResponse.status,
                     message: parsedResponse.message,
@@ -50,7 +54,6 @@ const RatingPopupContainer = ({ appDispatch }) => {
                 throw new Error('Issue with rateCode API');
             }
         } catch (e) {
-            console.error(e);
             return {
                 status: 500,
                 message: 'Unable to update the Code Ratings',
@@ -89,14 +92,26 @@ const RatingPopupContainer = ({ appDispatch }) => {
             payload['winner'] = 2;
         }
         const putResponse = await callRateCodeAPI(payload);
-        appDispatch({
-            type: ADD_TOAST_MESSAGE,
-            payload: {
-                message: putResponse.message,
-                timestamp: Date.now(),
-                type: 'SUCCESS',
-            },
-        });
+        if (putResponse.status && putResponse.status === 200) {
+            appDispatch({
+                type: ADD_TOAST_MESSAGE,
+                payload: {
+                    message: putResponse.message,
+                    timestamp: Date.now(),
+                    type: 'SUCCESS',
+                },
+            });
+        } else {
+            appDispatch({
+                type: ADD_TOAST_MESSAGE,
+                payload: {
+                    message: putResponse.message,
+                    timestamp: Date.now(),
+                    type: 'ERROR',
+                },
+            });
+        }
+
         closeRatingPopup();
     }, [
         state.randomCodesResponse,

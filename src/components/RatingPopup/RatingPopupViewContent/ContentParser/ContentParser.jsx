@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const RPMContentParser = ({ content }) => {
+const ContentParser = ({ content }) => {
     return content.split('\n').map((line, index) => (
         <div key={index}>
             {line.split('\t').map((segment, segmentIndex) => (
@@ -18,8 +18,8 @@ const RPMContentParser = ({ content }) => {
     ));
 };
 
-RPMContentParser.propTypes = {
+ContentParser.propTypes = {
     content: PropTypes.string,
 };
 
-export default React.memo(RPMContentParser);
+export default React.memo(ContentParser);

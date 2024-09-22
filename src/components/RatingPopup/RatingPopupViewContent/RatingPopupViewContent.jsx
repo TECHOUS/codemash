@@ -35,7 +35,13 @@ const RatingPopupViewContent = ({
             />
         );
     } else {
-        return <RPDesktopContentViewer />;
+        return (
+            <RPDesktopContentViewer
+                randomCodesResponse={randomCodesResponse}
+                ratingStarObj={ratingStarObj}
+                ratingPopupDispatch={ratingPopupDispatch}
+            />
+        );
     }
 };
 
