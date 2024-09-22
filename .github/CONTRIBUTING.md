@@ -1,8 +1,8 @@
-# CONTRIBUTING GUIDELINES
+# Contributing Guidelines
 
 Before contributing to this project make sure you star this repository. We really need support from you guys.
 
-## GUIDELINES
+## Guidelines
 
 ### BEGINNER
 

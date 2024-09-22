@@ -1,24 +1,20 @@
 # :male_detective: codemash
 
-This project is to teach you programmers how to write better quality code which is not written by the programmers working at the companies. We accept the codes that not suck at their quality.
+It is a fun project to teach programmers how to write better code by reviewing the bad-quality code contributed by any random programmer.
 
-## Code Of Conduct
+## Motivation
 
-We are following [**Contributor Covenant Code of Conduct**](.github/CODE_OF_CONDUCT.md).
+If you work as a software engineer, maybe you have seen bad quality code that is working, but it has a lot of bugs, and debugging the whole codebase is difficult. That's why the main motivation is to spread awareness among open-source programmers.
 
-## CONCEPT
+## Concept
 
-Basically the concept of the project is to rate the code quality for the codes contributed to this repository in CodeBase.
+The concept of the project is to rate the code quality of the codes contributed to this repository in the CodeBase folder.
 
-You can also get your code rated based on the quality and you can be on a leaderboard
+You can also check your code quality score by searching your GitHub username on the leaderboard. We accept the codes that don't suck at their quality.
 
-## CODEBASE
+## Hacktoberfest 2024 Participation
 
-**Excited!! please refer to the below guidelines for the contributions**
-
-[Contributing Guidelines](.github/CONTRIBUTING.md).
-
-***
+**This project is now open for the open-source contributions related to the [Hacktoberfest 2024](https://hacktoberfest.com/).**
 
 As a part of the contest send us better quality code in any language written by you only. For more details please refer to [Contributing Guidelines](.github/CONTRIBUTING.md).
 
@@ -37,12 +33,20 @@ PRs count if:
   
   )
 
-As a part of this update your PRs will be marked as `hacktoberfest-accepted` label before merging and don't get shocked PRs opened in this repository we will be counted in the Hacktober Fest 23.
+As a part of this update your PRs will be marked as `hacktoberfest-accepted` label before merging and don't get shocked PRs opened in this repository we will be counted in the Hacktober Fest 24.
 
 Happy Hacking !
 
 ***
 
-## LICENSE
+## Contribution
+
+Please refer to the [Contributing Guidelines here](.github/CONTRIBUTING.md)
+
+## Code Of Conduct
+
+We are following [**Contributor Covenant Code of Conduct**](.github/CODE_OF_CONDUCT.md).
+
+## License
 
 [MIT LICENSE](LICENSE)
