@@ -1,0 +1,16 @@
+:root {
+    --manga: #e5e1e6;
+    --void: #170f1e;
+    --spark: #ffe27d;
+    --surf: #64e3ff;
+    --psybeam: #9092ff;
+    --giga: #b4ff39;
+
+    --success: #388e3c;
+    --error: #d32f2f;
+}
+body,
+button {
+    font-family: 'Sora', sans-serif;
+    scroll-behavior: smooth;
+}

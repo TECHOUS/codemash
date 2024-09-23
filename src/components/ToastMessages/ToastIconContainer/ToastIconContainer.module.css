@@ -1,0 +1,6 @@
+.toastIconContainer {
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}

@@ -1,0 +1,12 @@
+.rpmCodeObject {
+    text-align: center;
+    width: 48%;
+    display: inline-block;
+    margin: 1%;
+    vertical-align: top;
+}
+
+.codeName {
+    overflow-wrap: break-word;
+    padding: 16px 0px;
+}

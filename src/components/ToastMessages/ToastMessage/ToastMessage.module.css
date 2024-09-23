@@ -1,0 +1,24 @@
+.successMessageDiv {
+    background-color: var(--success);
+    color: var(--manga);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    display: flex;
+}
+
+.errorMessageDiv {
+    background-color: var(--error);
+    color: var(--manga);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    display: flex;
+}
+
+.toastMessageText {
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}

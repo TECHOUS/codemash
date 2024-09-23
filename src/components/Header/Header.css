@@ -1,0 +1,18 @@
+#header-outer-div {
+    background-color: var(--giga);
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    z-index: 5;
+}
+
+.inline-header {
+    display: inline-block;
+    /* border: 1px solid black; */
+}
+
+@media screen and (min-width: 769px) {
+    #header-outer-div {
+        text-align: left;
+    }
+}

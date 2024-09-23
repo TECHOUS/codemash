@@ -1,0 +1,15 @@
+.rateButton {
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    background-color: var(--void);
+    color: var(--manga);
+    padding: 10px 50px;
+    border-radius: 10px;
+}
+
+@media screen and (min-width: 769px) {
+    .rateButton:hover {
+        background-color: var(--psybeam);
+    }
+}

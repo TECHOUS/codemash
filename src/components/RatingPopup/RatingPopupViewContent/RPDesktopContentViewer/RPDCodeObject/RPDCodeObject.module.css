@@ -1,0 +1,15 @@
+.rpdCodeObject {
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 1%;
+}
+
+.codeName {
+    overflow-wrap: break-word;
+    padding: 16px 0px;
+}
+
+.rpdCodeObjectBottomDiv {
+    text-align: center;
+}
