@@ -1,0 +1,36 @@
+.searchBar {
+    display: flex;
+    margin: 10px;
+    text-align: center;
+}
+
+.inputDiv {
+    width: 65%;
+}
+
+.inputDiv > input {
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    background-color: var(--spark);
+}
+
+.buttonDiv {
+    width: 35%;
+}
+
+.button {
+    border: none;
+    font-size: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    text-align: center;
+    padding: 9px;
+    background-color: var(--void);
+    color: var(--manga);
+}

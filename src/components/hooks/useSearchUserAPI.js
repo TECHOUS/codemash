@@ -9,13 +9,15 @@ export default function useSearchUserAPI(searchSectionDispatch, accessToken) {
     const callSearchUserAPI = useCallback(
         async (username) => {
             try {
-                const endpoint = `${
-                    import.meta.env.VITE_SEARCH_USER
-                }?username=${username}&sendContent=false`;
-                const payload = { codeRatingEngineToken: accessToken };
+                const endpoint = `${import.meta.env.VITE_SEARCH_USER}`;
+                const payload = {
+                    codeRatingEngineToken: accessToken,
+                    username,
+                    sendContent: false,
+                };
 
                 const response = await fetch(endpoint, {
-                    method: 'GET',
+                    method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -25,6 +27,7 @@ export default function useSearchUserAPI(searchSectionDispatch, accessToken) {
                 const parsedResponse = await response.json();
                 return parsedResponse;
             } catch (e) {
+                console.log(e);
                 return {
                     status: 500,
                     message: 'Exception occurred while searching the user data',

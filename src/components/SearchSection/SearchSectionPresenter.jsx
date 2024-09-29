@@ -3,6 +3,7 @@ import SearchBar from './SearchBar/SearchBar.jsx';
 import ResponseHandler from './ResponseHandler/ResponseHandler.jsx';
 import ContributionGuidelines from './ContributionGuidelines/ContributionGuidelines.jsx';
 import ScoreReactionBoardHandler from './ScoreReactionBoard';
+import styles from './SearchSectionPresenter.module.css';
 
 const SearchSectionPresenter = ({
     state,
@@ -10,8 +11,8 @@ const SearchSectionPresenter = ({
     searchSectionDispatch,
 }) => {
     return (
-        <div>
-            <h2>
+        <div className={styles.searchSectionDiv}>
+            <h2 className={styles.searchSectionH2}>
                 Let&apos;s see what rating do you got for the contributed code
             </h2>
             <SearchBar
@@ -35,7 +36,7 @@ const SearchSectionPresenter = ({
 
 SearchSectionPresenter.propTypes = {
     state: PropTypes.object,
-    searchUserAndStoreResponse: PropTypes.object,
+    searchUserAndStoreResponse: PropTypes.func,
     searchSectionDispatch: PropTypes.func,
 };
 
