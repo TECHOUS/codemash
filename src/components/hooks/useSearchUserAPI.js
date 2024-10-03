@@ -8,23 +8,21 @@ import {
 export default function useSearchUserAPI(searchSectionDispatch, accessToken) {
     const callSearchUserAPI = useCallback(
         async (username) => {
+            console.log(accessToken);
             try {
-                const endpoint = `${import.meta.env.VITE_SEARCH_USER}`;
-                const payload = {
-                    codeRatingEngineToken: accessToken,
-                    username,
-                    sendContent: false,
-                };
+                const endpoint = `${
+                    import.meta.env.VITE_SEARCH_USER
+                }?username=${username}&sendContent=false`;
 
                 const response = await fetch(endpoint, {
-                    method: 'POST',
+                    method: 'GET',
                     headers: {
-                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${accessToken}`,
                     },
-                    body: JSON.stringify(payload),
                 });
 
                 const parsedResponse = await response.json();
+                console.log(parsedResponse);
                 return parsedResponse;
             } catch (e) {
                 console.log(e);
