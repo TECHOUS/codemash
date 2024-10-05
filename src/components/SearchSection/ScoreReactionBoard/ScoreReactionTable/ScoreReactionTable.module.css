@@ -1,0 +1,14 @@
+.scoreReactionTable {
+    padding-top: 50px;
+}
+
+.table {
+    border-spacing: 0px;
+    width: 100%;
+}
+
+.header {
+    background-color: var(--spark);
+    padding: 8px 0px;
+    text-align: center;
+}

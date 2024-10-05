@@ -4,6 +4,7 @@ import './App.css';
 import RatingPopupHandler from '../RatingPopup';
 import ToastMessagesContainer from '../ToastMessages';
 import { useAppReducer } from '../hooks/useAppReducer.js';
+import SearchSectionContainer from '../SearchSection';
 
 function App() {
     const [state, appDispatch] = useAppReducer();
@@ -20,6 +21,7 @@ function App() {
                 toastMessages={state.toastMessages}
                 appDispatch={appDispatch}
             />
+            <SearchSectionContainer accessToken={state.accessToken} />
         </>
     );
 }

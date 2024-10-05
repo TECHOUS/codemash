@@ -11,25 +11,41 @@ import {
     SET_ACCESS_TOKEN,
 } from '../hooks/useAppReducer.js';
 import { useRatingPopupReducer } from '../hooks/useRatingPopupReducer.js';
+import {
+    SET_RANDOM_CODES,
+    STOP_IS_LOADING_FOR_RANDOM_CODES,
+} from '../hooks/useRatingPopupReducer.js';
 
 const RatingPopupContainer = ({ appDispatch }) => {
     const [state, ratingPopupDispatch] = useRatingPopupReducer();
     useWindowWidth(state.innerWidth, ratingPopupDispatch);
-    const { callRandomCodesAPI } = useRandomCodesAPI(ratingPopupDispatch);
+    const { callRandomCodesAPI } = useRandomCodesAPI();
 
     console.log('ratingpopup container rendered');
 
     useEffect(() => {
-        const response = callRandomCodesAPI();
-        if (response && response.status == 200) {
-            appDispatch({
-                type: SET_ACCESS_TOKEN,
+        const callRandomCodesAPIAndDispatchActions = async () => {
+            const response = await callRandomCodesAPI();
+            if (response && response.status == 200) {
+                appDispatch({
+                    type: SET_ACCESS_TOKEN,
+                    payload: {
+                        accessToken: response['accessToken'],
+                    },
+                });
+            }
+            ratingPopupDispatch({
+                type: SET_RANDOM_CODES,
                 payload: {
-                    accessToken: response['accessToken'],
+                    randomCodesResponse: response,
                 },
             });
-        }
-    }, [appDispatch, callRandomCodesAPI]);
+            ratingPopupDispatch({
+                type: STOP_IS_LOADING_FOR_RANDOM_CODES,
+            });
+        };
+        callRandomCodesAPIAndDispatchActions();
+    }, [appDispatch, callRandomCodesAPI, ratingPopupDispatch]);
 
     const callRateCodeAPI = useCallback(async (payload) => {
         try {

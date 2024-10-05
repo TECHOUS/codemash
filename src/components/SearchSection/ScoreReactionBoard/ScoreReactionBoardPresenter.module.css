@@ -1,0 +1,11 @@
+.scoreReactionBoardPresenter {
+    position: absolute;
+    background-color: var(--manga);
+    width: 98%;
+    margin: 1% 1% 0px 1%;
+    z-index: 3;
+    top: 0;
+    max-height: 89vh;
+    border-radius: 5px;
+    overflow-y: scroll;
+}
