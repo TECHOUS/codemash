@@ -1,0 +1,15 @@
+.cardContent {
+    flex: 1;
+    overflow: hidden;
+}
+
+.codeRating {
+    font-weight: 500;
+    padding: 16px 0px 0px 0px;
+}
+
+.codeName {
+    font-weight: 500;
+    padding: 5px 0px 16px 0px;
+    word-wrap: break-word;
+}

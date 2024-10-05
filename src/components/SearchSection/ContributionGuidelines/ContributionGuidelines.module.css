@@ -1,0 +1,10 @@
+.link,
+.link:visited,
+.link:active {
+    text-decoration: none;
+    color: var(--void);
+}
+
+.icon {
+    color: var(--psybeam) !important;
+}

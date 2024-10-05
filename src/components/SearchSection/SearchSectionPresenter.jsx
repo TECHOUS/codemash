@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar/SearchBar.jsx';
 import ResponseHandler from './ResponseHandler/ResponseHandler.jsx';
-import ContributionGuidelines from './ContributionGuidelines/ContributionGuidelines.jsx';
+import ContributionGuidelines from './ContributionGuidelines';
 import ScoreReactionBoardHandler from './ScoreReactionBoard';
 import styles from './SearchSectionPresenter.module.css';
 
@@ -22,10 +22,7 @@ const SearchSectionPresenter = ({
                 state={state}
                 searchSectionDispatch={searchSectionDispatch}
             />
-            <h2>
-                All the Contributions are welcome, you can check our{' '}
-                <ContributionGuidelines />
-            </h2>
+            <ContributionGuidelines />
             <ScoreReactionBoardHandler
                 isScoreReactionPageOpen={state.isScoreReactionPageOpen}
                 searchSectionDispatch={searchSectionDispatch}

@@ -1,6 +1,7 @@
 .searchSectionDiv {
     min-height: 90vh;
     background-color: var(--surf);
+    position: relative;
 }
 
 .searchSectionH2 {

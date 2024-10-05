@@ -26,6 +26,7 @@ const SearchBar = ({ searchUserAndStoreResponse }) => {
                     name="username"
                     onChange={handleChange}
                     placeholder="GitHub Username"
+                    autoComplete="on"
                 />
             </div>
             <div className={styles.buttonDiv}>

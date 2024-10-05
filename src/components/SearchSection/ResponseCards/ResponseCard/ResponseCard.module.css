@@ -1,0 +1,7 @@
+.responseCard {
+    background-color: var(--giga);
+    margin: 10px auto;
+    border-radius: 10px;
+    display: flex;
+    width: 95%;
+}
