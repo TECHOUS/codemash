@@ -6,11 +6,17 @@ const ScoreReactionTable = ({ scoreReactionBoardList }) => {
     return (
         <div className={styles.scoreReactionTable}>
             <table className={styles.table}>
-                <tr>
-                    <th className={styles.header}>Score</th>
-                    <th className={styles.header}>Reaction</th>
-                </tr>
-                <SRTableRows scoreReactionBoardList={scoreReactionBoardList} />
+                <thead>
+                    <tr>
+                        <th className={styles.header}>Score</th>
+                        <th className={styles.header}>Reaction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <SRTableRows
+                        scoreReactionBoardList={scoreReactionBoardList}
+                    />
+                </tbody>
             </table>
         </div>
     );
