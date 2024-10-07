@@ -14,3 +14,8 @@ function twoSum(nums, target) {
         }
     }; 
 }
+
+let numArr = [2,3,4,5,6,7]
+const target = 10
+
+console.log(twoSum(numArr, target))
