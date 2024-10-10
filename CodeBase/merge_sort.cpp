@@ -1,9 +1,21 @@
+/**
+ * PROBLEM: Merge Sort in C++
+ * AUTHOR: sourishphate
+ **/
+
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-// Merge function to combine two sorted halves
+/**
+ * This function merges two sorted halves of an array
+ * 
+ * @param A: the array to be sorted
+ * @param low: starting index of the first half
+ * @param mid: ending index of the first half
+ * @param high: ending index of the second half
+ **/
 void merge(vector<int>& A, int low, int mid, int high) {
     int n1 = mid - low + 1; // Length of first half
     int n2 = high - mid;    // Length of second half
@@ -19,7 +31,6 @@ void merge(vector<int>& A, int low, int mid, int high) {
         R[j] = A[mid + 1 + j];
     }
 
-    // Merge the temporary arrays back into A[low..high]
     int i = 0; // Initial index of first subarray
     int j = 0; // Initial index of second subarray
     int k = low; // Initial index of merged subarray
@@ -50,7 +61,13 @@ void merge(vector<int>& A, int low, int mid, int high) {
     }
 }
 
-// Merge Sort function
+/**
+ * This function sorts an array using merge sort algorithm
+ * 
+ * @param A: the array to be sorted
+ * @param p: starting index
+ * @param r: ending index
+ **/
 void mergeSort(vector<int>& A, int p, int r) {
     if (p < r) {
         int q = (p + r) / 2; // Find the midpoint
@@ -60,7 +77,11 @@ void mergeSort(vector<int>& A, int p, int r) {
     }
 }
 
-// Function to print the array
+/**
+ * This function prints the array
+ * 
+ * @param A: the array to print
+ **/
 void printArray(const vector<int>& A) {
     for (int val : A) {
         cout << val << " ";
@@ -68,9 +89,17 @@ void printArray(const vector<int>& A) {
     cout << endl;
 }
 
-// Main function
 int main() {
-    vector<int> A = {38, 27, 43, 3, 9, 82, 10};
+    int size;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+
+    vector<int> A(size);
+    cout << "Enter the elements of the array:\n";
+    for (int i = 0; i < size; i++) {
+        cin >> A[i];
+    }
+
     cout << "Unsorted array: ";
     printArray(A);
 
@@ -78,5 +107,6 @@ int main() {
 
     cout << "Sorted array: ";
     printArray(A);
+
     return 0;
 }
