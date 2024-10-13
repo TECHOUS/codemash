@@ -1,7 +1,5 @@
-"""
-PROBLEM: Karastuba Multiplication in Python
-AUTHOR: dikshat25
-"""
+# PROBLEM: Karatsuba Multiplication for large integers
+# AUTHOR: dikshat25
 
 def karatsuba_mul(n1, n2):
     """
