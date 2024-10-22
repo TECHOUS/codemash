@@ -2,3 +2,9 @@
     float: right;
     padding: 5px;
 }
+
+@media screen and (min-width: 1300px) {
+    .srbCrossIcon {
+        cursor: pointer;
+    }
+}

@@ -1,8 +1,16 @@
 .dataTd {
     padding: 10px;
+    border-bottom: 1px solid var(--spark);
 }
 
 .scoreImojiTd {
     padding: 10px;
     text-align: center;
+    border-bottom: 1px solid var(--spark);
+}
+
+@media screen and (min-width: 769px) {
+    .dataTd {
+        text-align: center;
+    }
 }
