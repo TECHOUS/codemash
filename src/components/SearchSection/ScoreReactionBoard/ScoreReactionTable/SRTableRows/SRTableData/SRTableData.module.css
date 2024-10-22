@@ -8,3 +8,9 @@
     text-align: center;
     border-bottom: 1px solid var(--spark);
 }
+
+@media screen and (min-width: 769px) {
+    .dataTd {
+        text-align: center;
+    }
+}
