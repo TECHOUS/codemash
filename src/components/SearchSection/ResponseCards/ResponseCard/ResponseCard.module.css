@@ -1,7 +1,42 @@
 .responseCard {
     background-color: var(--giga);
-    margin: 10px auto;
+    margin: 10px 10px;
     border-radius: 10px;
     display: flex;
-    width: 95%;
+}
+
+@media screen and (min-width: 376px) {
+    .responseCard {
+        margin: 10px 20px;
+    }
+}
+
+@media screen and (min-width: 426px) {
+    .responseCard {
+        margin: 10px 30px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .responseCard {
+        margin: 10px 10%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .responseCard {
+        margin: 10px 14%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .responseCard {
+        margin: 10px 20%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .responseCard {
+        margin: 10px 24%;
+    }
 }

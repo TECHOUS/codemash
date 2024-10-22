@@ -34,3 +34,42 @@
     background-color: var(--void);
     color: var(--manga);
 }
+
+@media screen and (min-width: 376px) {
+    .searchBar {
+        margin: 10px 20px;
+    }
+}
+
+@media screen and (min-width: 426px) {
+    .searchBar {
+        margin: 10px 30px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .searchBar {
+        margin: 10px 10%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .searchBar {
+        margin: 10px 14%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .searchBar {
+        margin: 10px 20%;
+    }
+    .button {
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .searchBar {
+        margin: 10px 24%;
+    }
+}

@@ -1,5 +1,17 @@
 .contributionGuidelinesContainer {
     font-size: 18px;
     text-align: center;
-    padding: 60px 0px 10px 0px;
+    padding: 60px 10px 10px 10px;
+}
+
+@media screen and (min-width: 376px) {
+    .contributionGuidelinesContainer {
+        padding: 60px 20px 10px 20px;
+    }
+}
+
+@media screen and (min-width: 426px) {
+    .contributionGuidelinesContainer {
+        padding: 60px 30px 10px 30px;
+    }
 }
