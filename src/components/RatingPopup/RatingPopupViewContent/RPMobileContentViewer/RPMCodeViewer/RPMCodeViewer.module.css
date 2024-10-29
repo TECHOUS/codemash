@@ -4,13 +4,18 @@
     top: 0px;
     width: 98%;
     border-radius: 5px;
-    max-height: 88vh;
     z-index: 2;
     overflow-x: scroll;
     margin: 1%;
+    height: 89vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .contentParserDiv {
     padding: 10px;
     white-space: nowrap;
+    flex-grow: 1;
 }

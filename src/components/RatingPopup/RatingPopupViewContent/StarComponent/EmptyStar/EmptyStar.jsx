@@ -4,7 +4,10 @@ import styles from './EmptyStar.module.css';
 const EmptyStar = ({ selectStar, stateKey }) => {
     return (
         <div>
-            <span onClick={() => selectStar(stateKey)}>
+            <span
+                onClick={() => selectStar(stateKey)}
+                className={styles.emptyStarIconDiv}
+            >
                 <i className={`fa-regular fa-star ${styles.emptyStarIcon}`}></i>
             </span>
         </div>

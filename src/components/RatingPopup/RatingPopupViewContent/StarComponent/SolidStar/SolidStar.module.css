@@ -2,3 +2,7 @@
     font-size: 48px;
     color: var(--psybeam);
 }
+
+.solidStarIconDiv {
+    cursor: pointer;
+}

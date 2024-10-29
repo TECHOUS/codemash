@@ -2,3 +2,9 @@
     text-align: center;
     padding: 30px;
 }
+
+@media screen and (min-width: 769px) {
+    .doneButtonDiv {
+        padding: 25px;
+    }
+}
