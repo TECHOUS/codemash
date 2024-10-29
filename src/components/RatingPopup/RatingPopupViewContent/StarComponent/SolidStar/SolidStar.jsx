@@ -4,7 +4,10 @@ import styles from './SolidStar.module.css';
 const SolidStar = ({ unselectStar, stateKey }) => {
     return (
         <div>
-            <span onClick={() => unselectStar(stateKey)}>
+            <span
+                onClick={() => unselectStar(stateKey)}
+                className={styles.solidStarIconDiv}
+            >
                 <i className={`fa-solid fa-star ${styles.solidStarIcon}`}></i>
             </span>
         </div>
