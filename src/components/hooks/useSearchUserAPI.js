@@ -8,7 +8,6 @@ import {
 export default function useSearchUserAPI(searchSectionDispatch, accessToken) {
     const callSearchUserAPI = useCallback(
         async (username) => {
-            console.log(accessToken);
             try {
                 const endpoint = `${
                     import.meta.env.VITE_SEARCH_USER
@@ -22,7 +21,6 @@ export default function useSearchUserAPI(searchSectionDispatch, accessToken) {
                 });
 
                 const parsedResponse = await response.json();
-                console.log(parsedResponse);
                 return parsedResponse;
             } catch (e) {
                 console.log(e);

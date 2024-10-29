@@ -11,7 +11,7 @@ const SearchSectionPresenter = ({
     searchSectionDispatch,
 }) => {
     return (
-        <div className={styles.searchSectionDiv}>
+        <div className={styles.searchSectionDiv} id="searchSection">
             <h2 className={styles.searchSectionH2}>
                 Let&apos;s see what rating do you got for the contributed code
             </h2>

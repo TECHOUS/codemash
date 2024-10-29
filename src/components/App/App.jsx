@@ -11,7 +11,10 @@ function App() {
 
     return (
         <>
-            <Header />
+            <Header
+                appDispatch={appDispatch}
+                isPopupOpened={state.isPopupOpened}
+            />
             <LandingSection appDispatch={appDispatch} />
             <RatingPopupHandler
                 isPopupOpened={state.isPopupOpened}
