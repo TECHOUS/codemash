@@ -14,3 +14,9 @@
     right: 0;
     padding: 8px 10px;
 }
+
+@media screen and (min-width: 1300px) {
+    .desktopRPCrossIcon {
+        cursor: pointer;
+    }
+}

@@ -17,8 +17,26 @@
     padding: 40px 30px;
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 500px) {
     .ratingPopup {
-        max-height: 90vh;
+        min-height: 89.5vh;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .ratingPopup {
+        min-height: 89vh;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .ratingPopup {
+        min-height: 88.5vh;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .ratingPopup {
+        min-height: 88vh;
     }
 }
