@@ -4,3 +4,22 @@
     bottom: 0;
     width: 100%;
 }
+
+@media screen and (min-width: 769px) {
+    .toastMessagesContainer {
+        right: 0;
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .toastMessagesContainer {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .toastMessagesContainer {
+        width: 30%;
+    }
+}
